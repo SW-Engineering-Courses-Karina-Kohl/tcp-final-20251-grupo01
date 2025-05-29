@@ -31,14 +31,14 @@ public class Exam extends Task{
         System.out.println();
     }
 
-    //@override
-    public void printTask(String name, String description, int date, boolean status, String room, String content){
+    @Override
+    public void printTask(String name, String description, int date, boolean status){
         if(status ==  true){
             System.out.println("A prova" + name + "foi finalizada");
         }
         else{
-            System.out.println("A prova" + name + "ocorrera no dia" + date + "na sala" + room);
-            System.out.println("Descricao:" + description + "o conteudo é" + content);
+            System.out.println("A prova" + name + "ocorrera no dia" + date);
+            System.out.println("Descricao:" + description);
         }
     }
 }

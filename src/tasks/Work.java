@@ -19,14 +19,14 @@ public class Work extends Task{
         this.toDo = toDo;
     }
 
-    //@override
-    public void printTask(String name, String description, int date, boolean status, String toDo){
+    @Override
+    public void printTask(String name, String description, int date, boolean status){
         if(status == true){
             System.out.println("O trabalho " + name + "foi finalizado.");
         }
         else{
             System.out.println("O trabalho " + name + " deve ser entregue até o dia " + date);
-            System.out.println("Descricao: " + description + " ainda precisa ser feito " + toDo);
+            System.out.println("Descricao: " + description);
         }
     }
 }

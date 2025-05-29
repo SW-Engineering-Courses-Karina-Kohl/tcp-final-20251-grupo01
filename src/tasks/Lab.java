@@ -17,13 +17,13 @@ public class Lab extends Task{
         this.room = room;
     }
 
-    //@override
-    public void printTask(String name, String description, int date, boolean status, String room){
+    @Override
+    public void printTask(String name, String description, int date, boolean status){
         if(status == true){
             System.out.println("O laborario " + name + " foi finalizada.");
         }
         else{
-            System.out.println("O laborario " + name + " ocorrera no dia " + date + " na sala " + room);
+            System.out.println("O laborario " + name + " ocorrera no dia " + date);
             System.out.println("Descricao: " + description);
         }
     }
