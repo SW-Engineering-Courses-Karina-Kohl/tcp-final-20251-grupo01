@@ -31,9 +31,9 @@ public class Exam extends Task{
         System.out.println();
     }
 
-    @override
+    //@override
     public void printTask(String name, String description, int date, boolean status, String room, String content){
-        if(status == 1){
+        if(status ==  true){
             System.out.println("A prova" + name + "foi finalizada");
         }
         else{

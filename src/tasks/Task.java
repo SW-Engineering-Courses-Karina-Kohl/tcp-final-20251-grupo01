@@ -23,7 +23,7 @@ public class Task{
         return description;
     }
 
-    public String getDate(){
+    public int getDate(){
         return date;
     }
 
@@ -40,22 +40,22 @@ public class Task{
         this.description = description;
     }
 
-    public String setDate(String date){
+    public void setDate(int date){
         this.date = date;
     }
 
-    public boolean setStatus(boolean status){
+    public void setStatus(boolean status){
         this.status = status;
     }
 
     //create a override to show different tasks
     public void printTask(String name, String description, int date, boolean status){
-        if(status == 1){
-            System.out.println("A tarefa" + name + "foi finalizada");
+        if(status == true){
+            System.out.println("A tarefa " + name + " foi finalizada.");
         }
         else{
-            System.out.println("A tarefa" + name + "ocorrera no dia" + date);
-            System.out.println("Descricao:" + description);
+            System.out.println("A tarefa " + name + " ocorrera no dia " + date);
+            System.out.println("Descricao: " + description);
         }
     }
 }

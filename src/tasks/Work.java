@@ -1,6 +1,6 @@
 package tasks;
 
-public class Work{
+public class Work extends Task{
 
     //change name, because we have a status on Task (superclass)
     //So to work we need a explanation about what need to do
@@ -11,22 +11,22 @@ public class Work{
         this.toDo = toDo;
     }
 
-    public boolean getStatus(){
-        return status;
+    public String getToDo(){
+        return toDo;
     }
 
-    public void setStatus(boolean status){
-        this.status = status;
+    public void setToDo(String toDo){
+        this.toDo = toDo;
     }
 
-    @override
+    //@override
     public void printTask(String name, String description, int date, boolean status, String toDo){
-        if(status == 1){
-            System.out.println("O trabalho" + name + "foi finalizado");
+        if(status == true){
+            System.out.println("O trabalho " + name + "foi finalizado.");
         }
         else{
-            System.out.println("O trabalho" + name + "deve ser entregue até o dia" + date);
-            System.out.println("Descricao:" + description + "ainda precisa ser feito" + toDo);
+            System.out.println("O trabalho " + name + " deve ser entregue até o dia " + date);
+            System.out.println("Descricao: " + description + " ainda precisa ser feito " + toDo);
         }
     }
 }
