@@ -6,7 +6,6 @@ public class Task{
     private String description;
     private int date;
     private boolean status;
-    //are we use subject here?
 
     public Task(String name, String description, int date, boolean status){
         this.name = name;
@@ -27,7 +26,6 @@ public class Task{
         return date;
     }
 
-    //add this func
     public boolean getStatus(){
         return status;
     }
@@ -48,14 +46,4 @@ public class Task{
         this.status = status;
     }
 
-    //create a override to show different tasks
-    public void printTask(String name, String description, int date, boolean status){
-        if(status == true){
-            System.out.println("A tarefa " + name + " foi finalizada.");
-        }
-        else{
-            System.out.println("A tarefa " + name + " ocorrera no dia " + date);
-            System.out.println("Descricao: " + description);
-        }
-    }
 }

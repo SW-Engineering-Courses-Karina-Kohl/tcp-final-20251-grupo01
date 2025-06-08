@@ -17,14 +17,4 @@ public class Lab extends Task{
         this.room = room;
     }
 
-    @Override
-    public void printTask(String name, String description, int date, boolean status){
-        if(status == true){
-            System.out.println("O laborario " + name + " foi finalizada.");
-        }
-        else{
-            System.out.println("O laborario " + name + " ocorrera no dia " + date);
-            System.out.println("Descricao: " + description);
-        }
-    }
 }
