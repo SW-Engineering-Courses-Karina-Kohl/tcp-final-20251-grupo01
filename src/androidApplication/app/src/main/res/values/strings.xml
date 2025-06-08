@@ -3,4 +3,9 @@
     <string name="title_today">Hoje</string>
     <string name="title_courses">Disciplinas</string>
     <string name="title_ru">RU</string>
+    <string name="inicio">Inicio</string>
+    <string name="hoje">Hoje</string>
+    <string name="disciplinas">Disciplinas</string>
+    <string name="cardapio_ru">Cardapio RU</string>
+    <string name="hello">Hello</string>
 </resources>
