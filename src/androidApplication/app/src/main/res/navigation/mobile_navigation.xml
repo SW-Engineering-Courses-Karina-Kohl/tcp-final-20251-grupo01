@@ -11,4 +11,16 @@
         android:label="@string/title_today"
         tools:layout="@layout/fragment_home" />
 
+    <fragment
+        android:id="@+id/navigation_disciplinas"
+        android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.DisciplinasFragment"
+        android:label="Disciplinas"
+        tools:layout="@layout/fragment_disciplinas" />
+
+    <fragment
+        android:id="@+id/navigation_cardapio"
+        android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.cardapio.CardapioFragment"
+        android:label="Cardápio RU"
+        tools:layout="@layout/fragment_cardapio" />
+
 </navigation>

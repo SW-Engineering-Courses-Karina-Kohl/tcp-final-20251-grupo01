@@ -24,24 +24,9 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-
-        Button newCourseButton = root.findViewById(R.id.newCourseButton);
-
-        newCourseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Your action here
-                Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        return root;
+        return binding.getRoot();
     }
-
-
-
 
     @Override
     public void onDestroyView() {

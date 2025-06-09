@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/navigation_hoje"
+    <item android:id="@+id/nav_hoje"
         android:title="@string/hoje"
         android:icon="@drawable/ic_calendar"/>
 
-    <item android:id="@+id/navigation_disciplinas"
+    <item android:id="@+id/nav_disciplinas"
         android:title="@string/disciplinas"
         android:icon="@drawable/ic_outline_aod_tablet_24"/>
 
-    <item android:id="@+id/navigation_cardapio"
+    <item android:id="@+id/nav_cardapio"
         android:title="@string/cardapio_ru"
         android:icon="@drawable/ic_outline_food_bank_24"/>
 
