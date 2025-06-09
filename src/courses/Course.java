@@ -14,8 +14,8 @@ public class Course {
     private List<Task> tasks;
     private String link_moodle;
 
+    // METODOS =========================================================
     
-
     public void addSchedule(Schedule schedule) {
         if (schedule == null) {
             throw new IllegalArgumentException("A schedule must be a non-null value");
@@ -36,8 +36,6 @@ public class Course {
         }
         this.teachers.add(teacher);
     }
-
-
 
     // CONSTRUTORES =========================================================
 
@@ -73,30 +71,51 @@ public class Course {
 
     // SETTERS =============================================================
     public void setCode(String code) {
+        if (code == null || code.isEmpty()) {
+            throw new IllegalArgumentException("Code cannot be null or empty");
+        }
         this.code = code;
     }
 
     public void setName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.name = name;
     }
 
     public void setCredits(int credits) {
+        if (credits <= 0) {
+            throw new IllegalArgumentException("Credits must be a positive integer");
+        }
         this.credits = credits;
     }
 
-    public void setTeachers(List<Teacher> teachers){
+    public void setTeachers(List<Teacher> teachers) {
+        if (teachers == null) {
+            throw new IllegalArgumentException("Teachers cannot be null");
+        }
         this.teachers = teachers;
     }
 
-    public void setSchedules(List<Schedule> schedules){
+    public void setSchedules(List<Schedule> schedules) {
+        if (schedules == null) {
+            throw new IllegalArgumentException("Schedules cannot be null");
+        }
         this.schedules = schedules;
     }
 
-    public void setTasks(List<Task> tasks){
+    public void setTasks(List<Task> tasks) {
+        if (tasks == null) {
+            throw new IllegalArgumentException("Tasks cannot be null");
+        }
         this.tasks = tasks;
     }
 
     public void setLinkMoodle(String link_moodle) {
+        if (link_moodle == null || link_moodle.isEmpty()) {
+            throw new IllegalArgumentException("Link Moodle cannot be null or empty");
+        }
         this.link_moodle = link_moodle;
     }
 
