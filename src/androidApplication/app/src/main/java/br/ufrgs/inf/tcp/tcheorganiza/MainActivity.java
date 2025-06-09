@@ -22,10 +22,9 @@ import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityMainBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.DisciplinasFragment;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.home.HomeFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
-    private  BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +42,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        binding.navView.setOnNavigationItemSelectedListener(this);
     }
 
+    FragmentManager fragmentManager = getSupportFragmentManager();
+
+    private void onHojeClicked(){
+        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, new HomeFragment()).commit();
+    }
+    private void onDiscplinasClicked(){
+        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, new DisciplinasFragment()).commit();
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+        if(item.getItemId() == R.id.nav_hoje){
+            onHojeClicked();
+            return true;
+        } else if (item.getItemId() == R.id.nav_disciplinas) {
+            onDiscplinasClicked();
+            return true;
+        } else {
             return false;
         }
 
     }
+}
