@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tasks.NewTaskActivity">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view_add_disciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="@color/cardview_light_background"
+            android:elevation="10dp"
+            android:padding="2dp"
+            android:hint="Disciplina"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative_layout_data_tipo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_text_nome_tarefa"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:autofillHints="description"
+        app:boxStrokeColor="@color/color_primary"
+        app:boxStrokeWidth="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da tarefa" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_data_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_nome_tarefa">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_data"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:autofillHints="Date"
+            app:boxStrokeColor="@color/color_primary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_tipo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:autofillHints="Date"
+            app:boxStrokeColor="@color/color_primary"
+            app:boxStrokeWidth="2dp"
+            android:layout_toEndOf="@id/edit_text_data"
+            android:layout_alignTop="@id/edit_text_data"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tipo" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_text_disciplina"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="60dp"
+        android:autofillHints="Date"
+        app:boxStrokeColor="@color/color_primary"
+        app:boxStrokeWidth="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_add_disciplina">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="40dp"/>
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/text_view_escolha_dias">-->
+
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_segunda"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="S"-->
+    <!--            android:textOn="S"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_terca"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="T"-->
+    <!--            android:textOn="T"-->
+    <!--            android:layout_alignTop="@id/toggleButton_segunda"-->
+    <!--            android:layout_toEndOf="@id/toggleButton_segunda"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_quarta"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="Q"-->
+    <!--            android:textOn="Q"-->
+    <!--            android:layout_alignTop="@id/toggleButton_segunda"-->
+    <!--            android:layout_toEndOf="@id/toggleButton_terca"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_quinta"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="Q"-->
+    <!--            android:textOn="Q"-->
+    <!--            android:layout_alignTop="@id/toggleButton_segunda"-->
+    <!--            android:layout_toEndOf="@id/toggleButton_quarta"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_sexta"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="S"-->
+    <!--            android:textOn="S"-->
+    <!--            android:layout_alignTop="@id/toggleButton_segunda"-->
+    <!--            android:layout_toEndOf="@id/toggleButton_quinta"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--        <ToggleButton-->
+    <!--            android:id="@+id/toggleButton_sabado"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textOff="S"-->
+    <!--            android:textOn="S"-->
+    <!--            android:layout_alignTop="@id/toggleButton_segunda"-->
+    <!--            android:layout_toEndOf="@id/toggleButton_sexta"-->
+    <!--            app:layout_constraintTop_toBottomOf="parent" />-->
+    <!--    </RelativeLayout>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_view_escolha_hora"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="48dp"-->
+    <!--        android:text="Escolha os dias da semana:"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/search_view_add_disciplina" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

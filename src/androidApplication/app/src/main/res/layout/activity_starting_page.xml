@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/text_view_bem_vindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"
+        android:text="Bem vindo(a) ao"/>
+    <TextView
+        android:id="@+id/text_view_tche_organiza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TchêOrganiza!"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/text_view_bem_vindo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="100dp"/>
+    <ImageView
+        android:id="@+id/image_view_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintTop_toBottomOf="@id/text_view_tche_organiza"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/text_view_comece_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comece adicionando as tuas disciplinas:"
+        app:layout_constraintTop_toBottomOf="@id/text_view_tche_organiza"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="150dp"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_add_disciplinas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar disciplinas"
+        app:layout_constraintTop_toBottomOf="@id/text_view_comece_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
