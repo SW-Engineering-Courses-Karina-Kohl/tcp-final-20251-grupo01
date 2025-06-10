@@ -1,4 +1,4 @@
-package br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas;
+package br.ufrgs.inf.tcp.tcheorganiza.ui.tasks;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,18 +14,19 @@ import androidx.lifecycle.ViewModelProvider;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentDisciplinasBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentTasksBinding;
 
-public class DisciplinasFragment extends Fragment  implements View.OnClickListener {
+public class TasksFragment extends Fragment  implements View.OnClickListener {
 
-    private FragmentDisciplinasBinding binding;
+    private FragmentTasksBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DisciplinasViewModel disciplinaViewModel =
-                new ViewModelProvider(this).get(DisciplinasViewModel.class);
+        TasksViewModel tasksViewModel =
+                new ViewModelProvider(this).get(TasksViewModel.class);
 
-        binding = FragmentDisciplinasBinding.inflate(inflater, container, false);
+        binding = FragmentTasksBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
     }
@@ -36,16 +37,16 @@ public class DisciplinasFragment extends Fragment  implements View.OnClickListen
         setupClickListener();
     }
     private void setupClickListener(){
-        binding.buttonAddDisciplinas.setOnClickListener(this);
-    }
-    
-    @Override
-    public void onClick(View v) {
-        launchAddDisciplinas();
+        binding.buttonAddTasks.setOnClickListener(this);
     }
 
-    private void launchAddDisciplinas() {
-        Intent intent = new Intent(getContext(), AddClassActivity.class);
+    @Override
+    public void onClick(View v) {
+        launchAddTasks();
+    }
+
+    private void launchAddTasks() {
+        Intent intent = new Intent(getContext(), AddTasksActivity.class);
         startActivity(intent);
     }
 

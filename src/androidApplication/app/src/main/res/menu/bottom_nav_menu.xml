@@ -13,4 +13,8 @@
         android:title="@string/ru"
         android:icon="@drawable/ic_outline_food_bank_24"/>
 
+    <item android:id="@+id/nav_tasks"
+        android:title="Atividades"
+        android:icon="@drawable/ic_outline_aod_tablet_24"/>
+
 </menu>

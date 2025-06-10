@@ -48,6 +48,16 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".ui.disciplinas.AddClassActivity"
+            android:exported="false"
+            android:label="Adicionar nova disciplina"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ui.tasks.AddTasksActivity"
+            android:exported="false"
+            android:label="Adicionar nova atividade"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

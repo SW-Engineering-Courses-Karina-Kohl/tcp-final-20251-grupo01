@@ -1,20 +1,15 @@
 package br.ufrgs.inf.tcp.tcheorganiza;
 
-import android.annotation.SuppressLint;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
-import androidx.navigation.NavHostController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -23,6 +18,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityMainBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.cardapio.CardapioFragment;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.DisciplinasFragment;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.home.HomeFragment;
+import br.ufrgs.inf.tcp.tcheorganiza.ui.tasks.TasksFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -47,13 +43,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         binding.navView.setOnNavigationItemSelectedListener(this);
         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, homeFragment).commit();
+
+
     }
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
     private HomeFragment homeFragment = new HomeFragment();
     private DisciplinasFragment disciplinasFragment = new DisciplinasFragment();
-    private  CardapioFragment cardapioFragment = new CardapioFragment();
+    private CardapioFragment cardapioFragment = new CardapioFragment();
+    private TasksFragment tasksFragment = new TasksFragment();
+
     private void onHojeClicked(){
         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, homeFragment).commit();
     }
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
     private void onCardapioClicked() {
         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, cardapioFragment).commit();
+    }
+    private void onAtividadesClicked() {
+        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment_activity_main, tasksFragment).commit();
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,11 +77,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         } else if (item.getItemId() == R.id.nav_cardapio){
             onCardapioClicked();
             return true;
-        } else {
+        } else if (item.getItemId() == R.id.nav_tasks){
+            onAtividadesClicked();
+            return true;
+        }else {
             return false;
         }
 
     }
+
 
 
 }
