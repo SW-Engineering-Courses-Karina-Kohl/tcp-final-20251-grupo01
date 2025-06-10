@@ -3,37 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/Theme.TcheOrganiza"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tasks.NewTaskActivity">
+    android:paddingTop="?attr/actionBarSize"
+    tools:context=".NewTaskActivity">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view_add_disciplina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:background="@color/cardview_light_background"
-            android:elevation="10dp"
-            android:padding="2dp"
-            android:hint="Disciplina"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/relative_layout_data_tipo" />
+    <androidx.appcompat.widget.SearchView
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/search_view_add_disciplina"
+        app:iconifiedByDefault="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        app:boxStrokeColor="@color/selector"
+        app:boxStrokeWidth="2dp"
+        android:elevation="10dp"
+        android:hint="Disciplina"
+        android:padding="2dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relative_layout_data_tipo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_nome_tarefa"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/selector"
+        app:boxStrokeWidth="2dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:autofillHints="description"
-        app:boxStrokeColor="@color/color_primary"
-        app:boxStrokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -52,17 +57,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_nome_tarefa">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_text_data"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeColor="@color/selector"
+            app:boxStrokeWidth="2dp"
+            android:elevation="10dp"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:autofillHints="Date"
-            app:boxStrokeColor="@color/color_primary"
-            app:boxStrokeWidth="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
@@ -77,14 +84,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_text_tipo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeColor="@color/selector"
+            app:boxStrokeWidth="2dp"
+            android:elevation="10dp"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:autofillHints="Date"
-            app:boxStrokeColor="@color/color_primary"
-            app:boxStrokeWidth="2dp"
-            android:layout_toEndOf="@id/edit_text_data"
             android:layout_alignTop="@id/edit_text_data"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/edit_text_data"
+            android:autofillHints="Date"
             app:layout_constraintTop_toBottomOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -101,14 +109,15 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:autofillHints="Date"
-        app:boxStrokeColor="@color/color_primary"
+        app:boxStrokeColor="@color/selector"
         app:boxStrokeWidth="2dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view_add_disciplina">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -117,13 +126,29 @@
             android:hint="Descrição" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_add_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="40dp"
         android:text="Adicionar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/color_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="40dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_continuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="Continuar"
+        android:backgroundTint="@color/color_background"
+        android:textColor="@color/color_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <!--    <RelativeLayout-->
     <!--        android:layout_width="wrap_content"-->
@@ -201,3 +226,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    android:background="@drawable/background_boxes"-->

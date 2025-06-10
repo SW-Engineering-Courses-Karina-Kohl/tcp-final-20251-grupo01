@@ -11,23 +11,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TcheOrganiza"
         tools:targetApi="31">
+
         <activity
-            android:name=".ui.tasks.NewTaskActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.disciplinas.AdicionarDisciplinasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.startingpage.StartingPageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".StartingPageActivity"
+            android:exported="true"
+            android:label="Bem vindo(a)">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewClassActivity"
+            android:exported="false"
+            android:label="Adicionar disciplinas"
+            android:parentActivityName=".StartingPageActivity" />
+        <activity
+            android:name=".NewTaskActivity"
+            android:exported="false"
+            android:label="Adicionar atividades"
+            android:parentActivityName=".NewClassActivity" />
+        <activity
+            android:name=".PreferenceRuActivity"
+            android:exported="false"
+            android:label="RU preferido"
+            android:parentActivityName=".NewTaskActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
