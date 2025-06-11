@@ -58,6 +58,15 @@
             android:exported="false"
             android:label="Adicionar nova atividade"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".ui.professor.ProfessorActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".ui.professor.AddProfessorActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

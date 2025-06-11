@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/color_secondary"
-        android:text="Adicionar nova disciplina"
+        android:text="Adicionar nova atividade"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="805dp"
         app:layout_constraintEnd_toEndOf="parent"
