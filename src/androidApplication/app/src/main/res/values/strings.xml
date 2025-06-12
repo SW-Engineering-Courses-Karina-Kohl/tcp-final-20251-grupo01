@@ -8,7 +8,18 @@
     <string name="disciplinas">Disciplinas</string>
     <string name="cardapio_ru">Cardapio RU</string>
     <string name="hello">Hello</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ru">RU</string>
+    <string name="select_weekday">Selecionar dia da semana</string>
+    <string name="start_time">Horário de início</string>
+    <string name="end_time">Horário de término</string>
+    <string name="location">Local</string>
+    <string-array name="weekdays_array">
+        <item>Segunda-feira</item>
+        <item>Terça-feira</item>
+        <item>Quarta-feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-feira</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
 </resources>
