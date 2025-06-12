@@ -10,16 +10,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddClassBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddTasksBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityNewTaskBinding;
 
 public class AddTasksActivity extends AppCompatActivity {
 
-    private ActivityAddClassBinding binding;
+    private ActivityAddTasksBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAddClassBinding.inflate(getLayoutInflater());
+        binding = ActivityAddTasksBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 }

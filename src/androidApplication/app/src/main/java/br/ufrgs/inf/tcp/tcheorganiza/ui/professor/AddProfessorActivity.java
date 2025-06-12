@@ -1,16 +1,12 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.professor;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import br.ufrgs.inf.tcp.tcheorganiza.R;
-import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddClassBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddProfessorBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.AddClassActivity;
 
 public class AddProfessorActivity extends AppCompatActivity {
 
@@ -22,5 +18,13 @@ public class AddProfessorActivity extends AppCompatActivity {
 
         binding = ActivityAddProfessorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.buttonConcluido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newProfessorActivityIntent = new Intent(AddProfessorActivity.this, AddClassActivity.class);
+                startActivity(newProfessorActivityIntent);
+            }
+        });
     }
 }
