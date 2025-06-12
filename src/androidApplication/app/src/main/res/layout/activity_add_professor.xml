@@ -5,28 +5,27 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.professor.AddProfessorActivity"
-    android:paddingTop="?attr/actionBarSize">
+    tools:context=".ui.professor.AddProfessorActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:orientation="vertical"
+        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingHorizontal="16dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Nome do professor -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome da professor"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:hint="Nome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/courseName"
+                android:id="@+id/text_input_professor_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -34,56 +33,68 @@
 
         <!-- Sala -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sala"
             android:layout_marginTop="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:hint="Sala">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/professor"
+                android:id="@+id/text_input_sala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--    Email-->
+        <!--    Email-->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:layout_marginTop="24dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginTop="16dp"
+            android:hint="Email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/courseEndDate"
+                android:id="@+id/text_input_professor_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
-<!--    Bottom buttons for add professor and navigation-->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_add_disciplinas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="Adicionar"
-        app:backgroundTint="@color/color_secondary"
+    <!--    Bottom buttons for add professor and navigation-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        >
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_concluido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="Concluído"
-        app:backgroundTint="@color/color_background"
-        android:textColor="@color/color_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_add_professor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="80dp"
+            android:text="Adicionar"
+            app:backgroundTint="@color/color_secondary"
+            android:layout_alignParentStart="true"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_concluido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:text="Concluído"
+            android:textColor="@color/color_primary"
+            app:backgroundTint="@color/color_background"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
