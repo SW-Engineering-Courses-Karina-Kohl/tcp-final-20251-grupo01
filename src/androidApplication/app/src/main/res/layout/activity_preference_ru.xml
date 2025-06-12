@@ -8,15 +8,17 @@
     tools:context=".PreferenceRuActivity"
     android:paddingTop="?attr/actionBarSize">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_concluido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="Concluído"
-        android:backgroundTint="@color/color_secondary"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Conclído"
+        app:backgroundTint="@color/color_secondary"
+        />
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
