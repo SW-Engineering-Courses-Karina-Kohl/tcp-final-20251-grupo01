@@ -58,20 +58,22 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_dropdown_tipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:hint="Tipo"
             android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_tipo"
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_menu_tipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                />
+                android:inputType="none"
+                android:importantForAutofill="no"
+                android:dropDownHeight="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,6 +88,7 @@
             android:background="@drawable/search_view_outline"
             android:layout_marginTop="20dp"
             />
+<!--        Descrição-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"

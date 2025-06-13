@@ -22,4 +22,18 @@
         <item>Sábado</item>
         <item>Domingo</item>
     </string-array>
+    <string-array name="dropdown_options_tipo_atividade">
+        <item>Prova</item>
+        <item>Entrega de trabalho</item>
+        <item>Questionário</item>
+    </string-array>
+
+    <string-array name="dropdown_options_RU">
+        <item>RU01 - CAMPUS CENTRO</item>
+        <item>RU02 - CAMPUS SAÚDE</item>
+        <item>RU03 - CAMPUS DO VALE</item>
+        <item>RU04 - CAMPUS AGRONOMIA</item>
+        <item>RU05 - CAMPUS ESEFID</item>
+        <item>RU06 - CAMPUS DO VALE - BLOCO IV</item>
+    </string-array>
 </resources>
