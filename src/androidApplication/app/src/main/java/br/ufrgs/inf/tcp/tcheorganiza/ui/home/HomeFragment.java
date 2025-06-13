@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        getActivity().setTitle("Hoje");
 
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
