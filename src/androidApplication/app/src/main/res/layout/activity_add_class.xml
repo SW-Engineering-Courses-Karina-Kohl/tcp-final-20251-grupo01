@@ -5,44 +5,65 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.disciplinas.AddClassActivity"
+    tools:context=".NewClassActivity"
     android:paddingTop="?attr/actionBarSize">
 
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Fragment Container dentro do scroll -->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/newCourseContainerView"
+                android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.NewCourseFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+      <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_add_prof"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="80dp"
             android:text="Adicionar professor"
-            app:backgroundTint="@color/color_secondary"
-            android:layout_alignParentStart="true"
-            />
+            app:backgroundTint="@color/color_secondary" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_add_disciplinas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="30dp"
             android:text="Adicionar"
-            app:backgroundTint="@color/color_secondary"
-            android:layout_alignParentEnd="true"/>
+            app:backgroundTint="@color/color_secondary" />
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ADICIONAR NOVA DISCIPLINA"
-        android:gravity="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
