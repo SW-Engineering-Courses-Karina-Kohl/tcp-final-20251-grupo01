@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_container_data"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:padding="5dp">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="24/06/25"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_horario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="10:30"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/linear_layout_container_data"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/linear_layout_container_data"
+            android:fontFamily="sans-serif-medium"
+            android:text="Entrega de trabalho"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_disciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_tipo"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/linear_layout_container_data"
+            android:fontFamily="sans-serif"
+            android:text="Técnicas de Contrução de Programas"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

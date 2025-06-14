@@ -26,7 +26,7 @@ public class DisciplinasFragment extends Fragment  implements View.OnClickListen
                 new ViewModelProvider(this).get(DisciplinasViewModel.class);
 
         binding = FragmentDisciplinasBinding.inflate(inflater, container, false);
-
+        getActivity().setTitle("Disciplinas");
         return binding.getRoot();
     }
 
