@@ -25,7 +25,7 @@ public class CardapioFragment extends Fragment {
                 new ViewModelProvider(this).get(CardapioViewModel.class);
 
         binding = FragmentCardapioBinding.inflate(inflater, container, false);
-
+        getActivity().setTitle("RU");
         return binding.getRoot();
     }
 

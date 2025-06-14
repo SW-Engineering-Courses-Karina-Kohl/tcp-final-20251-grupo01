@@ -60,13 +60,10 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".ui.professor.ProfessorActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
             android:name=".ui.professor.AddProfessorActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:label="Adicionar novo professor"
+            android:parentActivityName=".ui.disciplinas.AddClassActivity"/>
     </application>
 
 </manifest>
