@@ -1,16 +1,19 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas;
 
-import android.os.Bundle;
 import android.app.TimePickerDialog;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
@@ -18,20 +21,23 @@ import br.ufrgs.inf.tcp.tcheorganiza.R;
 
 public class CourseHourFragment extends Fragment {
 
-    private EditText editStartTime, editEndTime;
+    private Spinner spinnerWeekday;
+    private TextInputEditText editStartTime, editEndTime, editLocation;
     private FloatingActionButton deleteButton;
 
     public CourseHourFragment() {
         // Required empty public constructor
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_course_hour, container, false);
 
+        spinnerWeekday = root.findViewById(R.id.spinnerWeekday);
         editStartTime = root.findViewById(R.id.editStartTime);
         editEndTime = root.findViewById(R.id.editEndTime);
+        editLocation = root.findViewById(R.id.editLocation);
         deleteButton = root.findViewById(R.id.buttonDeleteHour);
 
         editStartTime.setOnClickListener(v -> showTimePicker(editStartTime));
@@ -41,7 +47,7 @@ public class CourseHourFragment extends Fragment {
         return root;
     }
 
-    private void showTimePicker(final EditText editText) {
+    private void showTimePicker(final TextInputEditText editText) {
         final Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
@@ -62,5 +68,21 @@ public class CourseHourFragment extends Fragment {
                     .remove(this)
                     .commit();
         });
+    }
+
+    public String getDay() {
+        return spinnerWeekday.getSelectedItem() != null ? spinnerWeekday.getSelectedItem().toString() : "";
+    }
+
+    public String getStartTime() {
+        return editStartTime.getText() != null ? editStartTime.getText().toString() : "";
+    }
+
+    public String getEndTime() {
+        return editEndTime.getText() != null ? editEndTime.getText().toString() : "";
+    }
+
+    public String getLocation() {
+        return editLocation.getText() != null ? editLocation.getText().toString() : "";
     }
 }
