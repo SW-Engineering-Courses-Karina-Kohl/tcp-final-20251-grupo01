@@ -1,57 +1,42 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas;
 
 import android.os.Bundle;
-
 import android.app.TimePickerDialog;
-import android.widget.EditText;
-import android.widget.TimePicker;
-
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CourseHourFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CourseHourFragment extends Fragment {
 
     private EditText editStartTime, editEndTime;
+    private FloatingActionButton deleteButton;
 
     public CourseHourFragment() {
         // Required empty public constructor
     }
 
-    public static CourseHourFragment newInstance(String param1, String param2) {
-        CourseHourFragment fragment = new CourseHourFragment();
-        Bundle args = new Bundle();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_course_hour, container, false);
 
         editStartTime = root.findViewById(R.id.editStartTime);
         editEndTime = root.findViewById(R.id.editEndTime);
+        deleteButton = root.findViewById(R.id.buttonDeleteHour);
 
         editStartTime.setOnClickListener(v -> showTimePicker(editStartTime));
         editEndTime.setOnClickListener(v -> showTimePicker(editEndTime));
+        deleteButton.setOnClickListener(v -> deleteThisHour());
 
         return root;
     }
@@ -68,5 +53,14 @@ public class CourseHourFragment extends Fragment {
                 }, hour, minute, true);
 
         timePickerDialog.show();
+    }
+
+    private void deleteThisHour() {
+        requireActivity().runOnUiThread(() -> {
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .remove(this)
+                    .commit();
+        });
     }
 }
