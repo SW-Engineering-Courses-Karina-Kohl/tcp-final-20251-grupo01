@@ -1,5 +1,6 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,11 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
@@ -31,7 +34,6 @@ public class NewCourseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View root  = inflater.inflate(R.layout.fragment_new_course, container, false);
 
         View newCourseHourButton = root.findViewById(R.id.buttonAddHour);
@@ -41,9 +43,25 @@ public class NewCourseFragment extends Fragment {
         courseEndDateEditText = root.findViewById(R.id.courseEndDate);
         professorEditText = root.findViewById(R.id.professor);
 
+        courseEndDateEditText.setOnClickListener(v -> showDatePicker());
         newCourseHourButton.setOnClickListener(v -> addCourseHour());
 
         return root;
+    }
+
+    private void showDatePicker() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                (view, selectedYear, selectedMonth, selectedDay) -> {
+                    String date = String.format("%02d/%02d/%04d", selectedDay, selectedMonth + 1, selectedYear);
+                    courseEndDateEditText.setText(date);
+                }, year, month, day);
+
+        datePickerDialog.show();
     }
 
     public void addCourseHour() {
@@ -80,7 +98,7 @@ public class NewCourseFragment extends Fragment {
                 String end = ((CourseHourFragment) fragment).getEndTime();
                 String location = ((CourseHourFragment) fragment).getLocation();
 
-                // Só conta se tiver todos os campos preenchidos
+                // Só adiciona se tiver todos os campos preenchidos
                 if (!day.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
                     classDays.add(day);
                     classStartHours.add(start);

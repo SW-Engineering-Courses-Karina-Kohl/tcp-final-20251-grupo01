@@ -83,6 +83,8 @@
             android:id="@+id/courseEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date" />
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
