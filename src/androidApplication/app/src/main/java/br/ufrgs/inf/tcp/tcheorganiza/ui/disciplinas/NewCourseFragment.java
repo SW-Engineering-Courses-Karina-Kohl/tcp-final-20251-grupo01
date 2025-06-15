@@ -36,12 +36,12 @@ public class NewCourseFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root  = inflater.inflate(R.layout.fragment_new_course, container, false);
 
-        View newCourseHourButton = root.findViewById(R.id.buttonAddHour);
+        View newCourseHourButton = root.findViewById(R.id.button_add_hour);
 
-        courseHourList = root.findViewById(R.id.courseHourList);
-        courseNameEditText = root.findViewById(R.id.courseName);
-        courseEndDateEditText = root.findViewById(R.id.courseEndDate);
-        professorEditText = root.findViewById(R.id.professor);
+        courseHourList = root.findViewById(R.id.linear_layout_course_hour_list);
+        courseNameEditText = root.findViewById(R.id.text_input_course_name);
+        courseEndDateEditText = root.findViewById(R.id.text_input_course_end_date);
+        professorEditText = root.findViewById(R.id.text_input_professor);
 
         courseEndDateEditText.setOnClickListener(v -> showDatePicker());
         newCourseHourButton.setOnClickListener(v -> addCourseHour());

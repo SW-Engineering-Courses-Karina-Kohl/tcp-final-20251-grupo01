@@ -9,11 +9,11 @@
     android:paddingTop="?attr/actionBarSize">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollContent"
+        android:id="@+id/nested_scroll_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_layout_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,7 +24,7 @@
 
             <!-- Fragment Container dentro do scroll -->
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/newCourseContainerView"
+                android:id="@+id/fragment_container_view_new_course"
                 android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.NewCourseFragment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

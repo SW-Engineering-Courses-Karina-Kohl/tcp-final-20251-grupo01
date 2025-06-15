@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityNewClassBinding;
-import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityNewTaskBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.NewCourseFragment;
 
 public class NewClassActivity extends AppCompatActivity {
 
@@ -23,6 +20,10 @@ public class NewClassActivity extends AppCompatActivity {
 
         binding = ActivityNewClassBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setUpButtonContinuar();
+
+    }
+    private void setUpButtonContinuar(){
         binding.buttonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +31,17 @@ public class NewClassActivity extends AppCompatActivity {
                 startActivity(newTaskActivityIntent);
             }
         });
+    }
+    private void setUpButtonAdicionar(){
+        binding.buttonAddDisciplinas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearTextFields();
+            }
+        });
+    }
+    //Clearing fields for next Disciplina to be add
+    private void clearTextFields(){
     }
 
 }
