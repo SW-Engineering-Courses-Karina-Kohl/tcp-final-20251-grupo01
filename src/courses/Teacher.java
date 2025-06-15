@@ -6,7 +6,7 @@ public class Teacher {
     private String email;
     private Office office;
 
-    // CONSTRUTORES =========================================================
+    // CONSTUCTORS =========================================================
 
     public Teacher(String name, String email, Office office) {
         this.name = name;

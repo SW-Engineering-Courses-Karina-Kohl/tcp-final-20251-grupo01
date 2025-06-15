@@ -5,12 +5,12 @@ public class Office {
     private int room;
     private int building;
 
-    // MÉTODOS =========================================================
+    // METHODS =========================================================
     public String getOfficeDetails() {
         return "Sala " + room + ", Predio " + building;
     } 
 
-    // CONSTRUTORES =========================================================
+    // CONSTUCTORS =========================================================
     public Office(int room, int building) {
         this.room = room;
         this.building = building;

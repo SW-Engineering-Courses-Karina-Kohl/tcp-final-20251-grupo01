@@ -14,7 +14,7 @@ public class Course {
     private List<Task> tasks;
     private String link_moodle;
 
-    // METODOS =========================================================
+    // METHODS =========================================================
     
     public void addSchedule(Schedule schedule) {
         if (schedule == null) {
@@ -37,7 +37,7 @@ public class Course {
         this.teachers.add(teacher);
     }
 
-    // CONSTRUTORES =========================================================
+    // CONSTUCTORS =========================================================
 
     public Course(String code, String name, int credits, List<Teacher> teachers, List<Schedule> schedules) {
         this.code = code;
