@@ -13,6 +13,7 @@
     <string name="start_time">Horário de início</string>
     <string name="end_time">Horário de término</string>
     <string name="location">Local</string>
+    <string name="type_task">Tipo</string>
     <string-array name="weekdays_array">
         <item>Segunda-feira</item>
         <item>Terça-feira</item>
