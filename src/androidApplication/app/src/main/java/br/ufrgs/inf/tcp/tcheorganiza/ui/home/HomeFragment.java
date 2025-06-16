@@ -40,10 +40,11 @@ public class HomeFragment extends Fragment {
                 .filter(course -> (long) course.getTodaySchedule().size() > 0)
                 .collect(Collectors.toList());
 
-        List<Task> tasks = persistence.getAllTasksOrdered().subList(0, maxNumOfTask);
+        List<Task> tasks = persistence.getAllTasksOrdered();
 
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        if(tasks.size() > maxNumOfTask) {
+            tasks = tasks.subList(0, maxNumOfTask);
+        }
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         getActivity().setTitle("Hoje");
