@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,20 +15,29 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
+import br.ufrgs.inf.tcp.tcheorganiza.Utils;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
+
+    private final String todayWeekDayInPortuguese = Utils.getTodayWeekDayInPortuguese();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DummyCourse[] courses = {
-                new DummyCourse("08:30", "Fundamentos de Banco de Dados", "116 - 43425"),
-                new DummyCourse("10:30", "Técnicas de Construção de Programas", "112 - 43425"),
-                new DummyCourse("13:30", "Complexidade de Algoritmos - B", "107 - 43425"),
-        };
+
+        List<Course> todayCourses = persistence.getDisciplinasList().stream()
+                .filter(course -> (long) course.getTodaySchedule().size() > 0)
+                .collect(Collectors.toList());
+
         DummyTasks[] tasks = {
                 new DummyTasks("Entrega de trabalho", "24/06/25", "10:30","Técnicas de Construção de Programas"),
                 new DummyTasks("Prova", "30/06/25", "08:30","Fundamentos de Banco de Dados")
@@ -39,7 +51,7 @@ public class HomeFragment extends Fragment {
 
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
-        DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(courses);
+        DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(todayCourses);
         recyclerViewCourses.setAdapter(disciplinasAdapter);
 
         RecyclerView recyclerViewTasks = binding.recyclerListAtividades;

@@ -9,20 +9,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
 
+import java.util.List;
+
 import br.ufrgs.inf.tcp.tcheorganiza.R;
+import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
+import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
 
 public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.DisciplinasViewHolder> {
 
-    private DummyCourse[] courses;
+    private List<Course> todayCourses;
 
-    public DisciplinasAdapter(DummyCourse[] courses) {
-        this.courses = courses;
+    public DisciplinasAdapter(List<Course> courses) {
+        this.todayCourses = courses;
     }
 
     @Override
     public int getItemCount() {
-        return courses.length;
+        return todayCourses.size();
     }
+
     @NonNull
     @Override
     public DisciplinasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,7 +37,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DisciplinasViewHolder holder, int position) {
-        holder.bind(courses[position]);
+        holder.bind(todayCourses.get(position));
     }
 
 
@@ -50,10 +55,16 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
             courseName = itemView.findViewById(R.id.text_view_nome_disciplina);
             classroom = itemView.findViewById(R.id.text_view_sala_disciplina);
         }
-        public void bind(DummyCourse course){
-            courseTime.setText(course.courseTime);
-            courseName.setText(course.courseName);
-            classroom.setText(course.classroom);
+        public void bind(Course course){
+            courseName.setText(course.getName());
+
+            List<Schedule> todaySchedules = course.getTodaySchedule();
+            if (!todaySchedules.isEmpty()) {
+                Schedule todaySchedule = todaySchedules.get(0);
+                classroom.setText(todaySchedule.getOffice().toString());
+                courseTime.setText("ARRUMAR");
+                        //todaySchedule.getBeginTime().toString());
+            }
         }
     }
 }
