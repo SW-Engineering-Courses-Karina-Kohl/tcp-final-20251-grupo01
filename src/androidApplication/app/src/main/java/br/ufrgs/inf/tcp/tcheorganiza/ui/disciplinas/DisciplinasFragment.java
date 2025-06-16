@@ -22,8 +22,6 @@ public class DisciplinasFragment extends Fragment  implements View.OnClickListen
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DisciplinasViewModel disciplinaViewModel =
-                new ViewModelProvider(this).get(DisciplinasViewModel.class);
 
         binding = FragmentDisciplinasBinding.inflate(inflater, container, false);
         getActivity().setTitle("Disciplinas");
