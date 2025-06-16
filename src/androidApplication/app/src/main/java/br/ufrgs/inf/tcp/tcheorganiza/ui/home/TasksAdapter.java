@@ -15,13 +15,14 @@ import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Exam;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Lab;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Work;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHolder> {
 
-    private List<Task> tasks;
+    private List<TupleTaskCourse> tasks;
 
-    public TasksAdapter(List<Task> tasks) {
+    public TasksAdapter(List<TupleTaskCourse> tasks) {
         this.tasks = tasks;
     }
 
@@ -59,7 +60,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
             taskTime = itemView.findViewById(R.id.text_view_horario);
             taskCourse = itemView.findViewById(R.id.text_view_disciplina);
         }
-        public void bind(Task task){
+        public void bind(TupleTaskCourse tupleTaskCourse){
+            Task task = tupleTaskCourse.getTask();
+            String courseName = tupleTaskCourse.getCourseName();
+
             String taskTypeString;
 
             if (task instanceof Exam) {
@@ -75,6 +79,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
             taskType.setText(taskTypeString);
             taskDate.setText(task.getDate()); // TODO: Fix, current getDate is int
             taskTime.setText(task.getDate()); //  TODO: Fix, current getDate is int
+            taskCourse.setText(courseName);
         }
     }
 }

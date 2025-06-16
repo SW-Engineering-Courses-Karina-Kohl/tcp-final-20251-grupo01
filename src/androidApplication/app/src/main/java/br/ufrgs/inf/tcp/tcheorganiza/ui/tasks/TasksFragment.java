@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentTasksBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.home.TasksAdapter;
 
@@ -29,7 +30,7 @@ public class TasksFragment extends Fragment  implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        List<Task> tasks = persistence.getAllTasksOrdered();
+        List<TupleTaskCourse> tasks = persistence.getAllTaskByTupleTaskCourse();
 
         TasksViewModel tasksViewModel =
                 new ViewModelProvider(this).get(TasksViewModel.class);

@@ -22,6 +22,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.Utils;
 
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
                 .filter(course -> (long) course.getTodaySchedule().size() > 0)
                 .collect(Collectors.toList());
 
-        List<Task> tasks = persistence.getAllTasksOrdered();
+        List<TupleTaskCourse> tasks = persistence.getAllTaskByTupleTaskCourse();
 
         if(tasks.size() > maxNumOfTask) {
             tasks = tasks.subList(0, maxNumOfTask);

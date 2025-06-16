@@ -13,6 +13,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Teacher;
 import br.ufrgs.inf.tcp.tcheorganiza.model.ru.RegistroTickets;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Exam;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Work;
 
 public class TcheOrganizaPersistence {
@@ -39,9 +40,6 @@ public class TcheOrganizaPersistence {
     public RegistroTickets registroTickets = new RegistroTickets();
     private List<Teacher> teachersList = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
-
-    private List<Task> taskList = new ArrayList<>();
-
 
     // TEACHERS
     //Adds the teachers to a list (best way I found to do it)
@@ -73,5 +71,19 @@ public class TcheOrganizaPersistence {
         }
         allTasksOrdered.sort(Comparator.comparingInt(Task::getDate));
         return allTasksOrdered;
+    }
+
+    public List<TupleTaskCourse> getAllTaskByTupleTaskCourse() {
+        List<TupleTaskCourse> result = new ArrayList<>();
+
+        for (Course course : courses) {
+            for (Task task : course.getTasks()) {
+                result.add(new TupleTaskCourse(task, course));
+            }
+        }
+
+        result.sort(Comparator.comparingInt(tuple -> tuple.getTask().getDate()));
+
+        return result;
     }
 }
