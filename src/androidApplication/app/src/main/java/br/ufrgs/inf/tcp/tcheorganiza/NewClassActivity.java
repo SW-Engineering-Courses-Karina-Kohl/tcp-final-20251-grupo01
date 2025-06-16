@@ -13,6 +13,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.NewCourseFragment;
 public class NewClassActivity extends AppCompatActivity {
 
     private ActivityNewClassBinding binding;
+    private NewCourseFragment newCourseFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,9 @@ public class NewClassActivity extends AppCompatActivity {
         binding = ActivityNewClassBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setUpButtonContinuar();
+        setUpButtonAdicionar();
+        newCourseFragment = (NewCourseFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view_new_course);
+
 
     }
     private void setUpButtonContinuar(){
@@ -36,11 +40,13 @@ public class NewClassActivity extends AppCompatActivity {
         binding.buttonAddDisciplinas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean save = newCourseFragment.saveCourse();
                 clearTextFields();
             }
         });
     }
-    //Clearing fields for next Disciplina to be add
+
+    // Clearing fields for next Disciplina to be add
     private void clearTextFields(){
     }
 
