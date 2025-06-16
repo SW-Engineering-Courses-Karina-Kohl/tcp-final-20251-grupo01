@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddProfessorBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.AddClassActivity;
 
 public class AddProfessorActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class AddProfessorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //COLOCAR FUNÇÃO AQUI PARA PEGAR DADOS
+                saveData();
                 new AlertDialog.Builder(AddProfessorActivity.this)
                         .setMessage("Professor(a) adicionado(a) com sucesso!")
                         .setPositiveButton("OK", (dialog, which) -> {
@@ -49,14 +51,27 @@ public class AddProfessorActivity extends AppCompatActivity {
         });
     }
 
+    private String getProfessorName(){
+        return binding.textInputProfessorName.getText().toString().trim();
+    }
+    private int getSala(){
+        return Integer.parseInt(binding.textInputSala.getText().toString().trim());
+    }
+    private int getPredio(){
+        return Integer.parseInt(binding.textInputPredio.getText().toString().trim());
+    }
+    private String getEmail(){
+        return binding.textInputProfessorEmail.getText().toString().trim();
+    }
+    private void saveData(){
+        TcheOrganizaPersistence.getInstance().addTeacherToList(getProfessorName(), getEmail(), getPredio(), getSala());
+    }
     private void clearTextFields(){
         binding.textInputProfessorName.setText("");
         binding.textInputProfessorName.clearFocus();
 
-
         binding.textInputSala.setText("");
         binding.textInputSala.clearFocus();
-
 
         binding.textInputProfessorEmail.setText("");
         binding.textInputProfessorEmail.clearFocus();

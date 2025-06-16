@@ -37,4 +37,7 @@
         <item>RU05 - CAMPUS ESEFID</item>
         <item>RU06 - CAMPUS DO VALE - BLOCO IV</item>
     </string-array>
+    <string-array name="dropdown_options_professor">
+        <item> </item>
+    </string-array>
 </resources>

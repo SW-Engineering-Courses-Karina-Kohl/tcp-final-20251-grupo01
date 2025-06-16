@@ -54,7 +54,10 @@
                 android:id="@+id/text_input_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date" />
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -64,7 +67,6 @@
             android:hint="Tipo"
             android:layout_weight="1"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
             <AutoCompleteTextView
@@ -79,15 +81,22 @@
 
     </LinearLayout>
 <!--        Disciplina-->
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view_disciplina"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_dropdown_disciplina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryHint="Disciplina"
-            app:iconifiedByDefault="false"
-            android:background="@drawable/search_view_outline"
-            android:layout_marginTop="20dp"
-            />
+            android:hint="Disciplina"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_menu_disciplina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownHeight="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 <!--        Descrição-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

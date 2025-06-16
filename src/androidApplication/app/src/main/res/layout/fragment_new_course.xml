@@ -26,17 +26,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/text_input_dropdown_professor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Professor"
+        android:layout_weight="1"
         android:layout_marginTop="16dp"
-        android:hint="Professor">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_professor"
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_menu_professor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:dropDownHeight="wrap_content"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
