@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import br.ufrgs.inf.tcp.tcheorganiza.Utils;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.*;
 
 public class Course {
@@ -166,4 +169,10 @@ public class Course {
         return link_moodle;
     }
 
+    public List<Schedule> getTodaySchedule() {
+        return this.schedules.stream()
+                .filter(schedule -> schedule.getWeekday()
+                        .equalsIgnoreCase(Utils.getTodayWeekDayInPortuguese()))
+                .collect(Collectors.toList());
+    }
 }
