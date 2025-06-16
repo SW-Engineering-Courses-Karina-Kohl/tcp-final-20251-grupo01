@@ -15,6 +15,10 @@ public class Office {
         this.room = room;
         this.building = building;
     }
+    public Office(int room) {
+        this.room = room;
+        this.building = 43425;
+    }
 
     // SETTERS =========================================================
     public void setRoom(int room) {

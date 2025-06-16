@@ -5,7 +5,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.*;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,7 @@
 package br.ufrgs.inf.tcp.tcheorganiza.model.courses;
-import java.time.LocalTime;
+
+import org.threeten.bp.LocalTime;
+
 
 public class Schedule{
 
@@ -13,7 +15,7 @@ public class Schedule{
         return weekday + ", " + begin_time.toString() + " - " + end_time.toString() + ", " + office.getOfficeDetails();
     }
 
-    // CONSTUCTORS ===============================================================
+    // CONSTRUCTORS ===============================================================
 
     public Schedule(String weekday, Office office, LocalTime begin_time, LocalTime end_time) {
         this.weekday = weekday;

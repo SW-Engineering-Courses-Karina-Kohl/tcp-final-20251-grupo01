@@ -1,5 +1,7 @@
 package br.ufrgs.inf.tcp.tcheorganiza.model.courses;
 
+import androidx.annotation.NonNull;
+
 public class Teacher {
 
     private String name;
@@ -14,6 +16,11 @@ public class Teacher {
         this.office = office;
     }
 
+    @NonNull
+    @Override
+    public String toString(){
+        return name;
+    }
     // SETTERS =========================================================
 
     public void setName(String name) {

@@ -1,5 +1,7 @@
 package br.ufrgs.inf.tcp.tcheorganiza.model.courses;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.*;
@@ -13,6 +15,12 @@ public class Course {
     private List<Schedule> schedules;
     private List<Task> tasks;
     private String link_moodle;
+
+    @NonNull
+    @Override
+    public String toString(){
+        return name;
+    }
 
     // METHODS =========================================================
     
@@ -56,6 +64,16 @@ public class Course {
         this.teachers = new ArrayList<>();
         this.link_moodle = "link_moodle";
         this.schedules = new ArrayList<>();
+        this.tasks = new ArrayList<>();
+    }
+
+    public Course(String name, List<Teacher> teachers, List<Schedule> schedules) {
+        this.code = "";
+        this.name = name;
+        this.credits = -1;
+        this.teachers = teachers;
+        this.link_moodle = "link_moodle";
+        this.schedules = schedules;
         this.tasks = new ArrayList<>();
     }
 
