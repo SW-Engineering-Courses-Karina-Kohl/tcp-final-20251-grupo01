@@ -13,6 +13,7 @@
     <string name="start_time">Horário de início</string>
     <string name="end_time">Horário de término</string>
     <string name="location">Local</string>
+    <string name="type_task">Tipo</string>
     <string-array name="weekdays_array">
         <item>Segunda-feira</item>
         <item>Terça-feira</item>
@@ -35,5 +36,8 @@
         <item>RU04 - CAMPUS AGRONOMIA</item>
         <item>RU05 - CAMPUS ESEFID</item>
         <item>RU06 - CAMPUS DO VALE - BLOCO IV</item>
+    </string-array>
+    <string-array name="dropdown_options_professor">
+        <item> </item>
     </string-array>
 </resources>

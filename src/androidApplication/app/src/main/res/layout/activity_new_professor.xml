@@ -1,130 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewTaskActivity">
+    tools:context=".ui.professor.AddProfessorActivity">
 
     <LinearLayout
-        android:id="@+id/linear_layout_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:orientation="vertical"
+        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingHorizontal="16dp">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Nome da tarefa -->
+        <!-- Nome do professor -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome da atividade"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:hint="Nome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_nome_atividade"
+                android:id="@+id/text_input_professor_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--        Data e Tipo-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginTop="16dp">
-            <!-- Data -->
+            android:weightSum="2">
+            <!-- Prédio -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:hint="Data"
-                android:layout_weight="1"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginTop="16dp"
+                android:hint="Prédio"
+                android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_input_data"
+                    android:id="@+id/text_input_predio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date" />
+                    android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!--            Sala-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_dropdown_tipo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tipo"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                android:layout_marginTop="16dp"
+                android:hint="Sala"
+                android:layout_weight="1">
 
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_menu_professor"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_sala"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:importantForAutofill="no"
-                    android:dropDownHeight="wrap_content"/>
-
+                    android:inputType="numberDecimal"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
-        <!--        Disciplina-->
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view_disciplina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:queryHint="Disciplina"
-            app:iconifiedByDefault="false"
-            android:background="@drawable/search_view_outline"
-            android:layout_marginTop="20dp"
-            />
-        <!--        Descrição-->
+
+        <!--    Email-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_container"
-            app:layout_constraintBottom_toTopOf="@id/relative_layout_buttons_container"
-            android:layout_marginTop="20dp"
-            app:hintEnabled="false">
+            android:layout_marginTop="16dp"
+            android:hint="Email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_descricao"
+                android:id="@+id/text_input_professor_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:lines="10"
-                android:hint="Descrição"
-                android:gravity="start"
-                android:scrollbars="vertical"/>
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
-
-
-
-    <!-- Botões inferiores -->
+    <!--    Bottom buttons for add professor and navigation-->
     <RelativeLayout
-        android:id="@+id/relative_layout_buttons_container"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        >
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_add_tasks"
+            android:id="@+id/button_add_professor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -139,10 +114,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
-            android:text="Concluído"
+            android:text="Continuar"
             android:textColor="@color/color_primary"
             app:backgroundTint="@color/color_background"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

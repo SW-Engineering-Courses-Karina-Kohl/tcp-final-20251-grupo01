@@ -40,7 +40,7 @@
         android:id="@+id/text_view_comece_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comece adicionando as tuas disciplinas:"
+        android:text="Bora começar?"
         app:layout_constraintTop_toBottomOf="@id/text_view_tche_organiza"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Adicionar disciplinas"
+        android:text="Começar"
         app:backgroundTint="@color/color_secondary"
         />
 

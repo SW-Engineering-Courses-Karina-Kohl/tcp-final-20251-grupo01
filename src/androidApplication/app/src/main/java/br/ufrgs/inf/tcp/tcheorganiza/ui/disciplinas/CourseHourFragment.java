@@ -70,7 +70,7 @@ public class CourseHourFragment extends Fragment {
         });
     }
 
-    public String getDay() {
+    public String getWeekDay() {
         return spinnerWeekday.getSelectedItem() != null ? spinnerWeekday.getSelectedItem().toString() : "";
     }
 
