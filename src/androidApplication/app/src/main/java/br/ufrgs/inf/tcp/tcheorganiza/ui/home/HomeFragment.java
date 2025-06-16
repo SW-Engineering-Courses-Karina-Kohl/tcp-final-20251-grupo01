@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
 import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.Utils;
 
@@ -28,6 +29,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
+    private final int maxNumOfTask = 5;
 
     private final String todayWeekDayInPortuguese = Utils.getTodayWeekDayInPortuguese();
 
@@ -38,17 +40,13 @@ public class HomeFragment extends Fragment {
                 .filter(course -> (long) course.getTodaySchedule().size() > 0)
                 .collect(Collectors.toList());
 
-        DummyTasks[] tasks = {
-                new DummyTasks("Entrega de trabalho", "24/06/25", "10:30","Técnicas de Construção de Programas"),
-                new DummyTasks("Prova", "30/06/25", "08:30","Fundamentos de Banco de Dados")
+        List<Task> tasks = persistence.getAllTasksOrdered().subList(0, maxNumOfTask);
 
-        };
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         getActivity().setTitle("Hoje");
-
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
         DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(todayCourses);
@@ -57,8 +55,6 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerViewTasks = binding.recyclerListAtividades;
         TasksAdapter tasksAdapter = new TasksAdapter(tasks);
         recyclerViewTasks.setAdapter(tasksAdapter);
-
-
 
         return binding.getRoot();
     }
