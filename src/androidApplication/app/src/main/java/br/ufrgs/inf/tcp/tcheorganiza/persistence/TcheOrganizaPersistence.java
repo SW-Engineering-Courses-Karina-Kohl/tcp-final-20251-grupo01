@@ -2,6 +2,8 @@ package br.ufrgs.inf.tcp.tcheorganiza.persistence;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
@@ -10,6 +12,8 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Teacher;
 import br.ufrgs.inf.tcp.tcheorganiza.model.ru.RegistroTickets;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Exam;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Work;
 
 public class TcheOrganizaPersistence {
 
@@ -36,6 +40,8 @@ public class TcheOrganizaPersistence {
     private List<Teacher> teachersList = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
 
+    private List<Task> taskList = new ArrayList<>();
+
 
     // TEACHERS
     //Adds the teachers to a list (best way I found to do it)
@@ -59,30 +65,13 @@ public class TcheOrganizaPersistence {
         return courses;
     }
 
+    public List<Task> getAllTasksOrdered() {
+        List<Task> allTasksOrdered = new ArrayList<>();
 
-    
-}
-
-// Exemplo de uso
-/*
-
-import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
-import br.ufrgs.inf.tcp.tcheorganiza.persistence.RegistroTickets;
-
-public class Main {
-    public static void main(String[] args) {
-        // Obtendo a instância única
-        TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
-
-        // Usando o atributo compartilhado
-        RegistroTickets tickets = persistence.registroTickets;
-
-        // Listando os tickets
-        System.out.println("Tickets registrados:");
-        for (String ticket : tickets.getListaTickets()) {
-            System.out.println(ticket);
+        for(Course course: courses){
+            allTasksOrdered.addAll(course.getTasks());
         }
+        allTasksOrdered.sort(Comparator.comparingInt(Task::getDate));
+        return allTasksOrdered;
     }
 }
-
- */
