@@ -23,10 +23,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".NewProfessorActivity"
+            android:exported="false"
+            android:label="Adicionar professores"
+            android:parentActivityName=".StartingPageActivity"/>
+        <activity
             android:name=".NewClassActivity"
             android:exported="false"
             android:label="Adicionar disciplinas"
-            android:parentActivityName=".StartingPageActivity" />
+            android:parentActivityName=".NewProfessorActivity"
+             />
         <activity
             android:name=".NewTaskActivity"
             android:exported="false"
@@ -58,12 +64,11 @@
             android:exported="false"
             android:label="Adicionar nova atividade"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".ui.professor.AddProfessorActivity"
             android:exported="false"
             android:label="Adicionar novo professor"
-            android:parentActivityName=".ui.disciplinas.AddClassActivity"/>
+            android:parentActivityName=".ui.disciplinas.AddClassActivity" />
     </application>
 
 </manifest>
