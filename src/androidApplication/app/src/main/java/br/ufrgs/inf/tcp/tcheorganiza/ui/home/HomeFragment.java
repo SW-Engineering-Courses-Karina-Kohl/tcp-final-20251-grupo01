@@ -4,27 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
-import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.Utils;
+import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.DisciplinasAdapter;
+import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.TasksAdapter;
 
 public class HomeFragment extends Fragment {
 

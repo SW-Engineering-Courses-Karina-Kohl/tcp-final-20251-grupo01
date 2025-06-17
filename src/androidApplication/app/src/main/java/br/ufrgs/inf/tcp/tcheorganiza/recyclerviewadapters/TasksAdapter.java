@@ -1,4 +1,4 @@
-package br.ufrgs.inf.tcp.tcheorganiza.ui.home;
+package br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
