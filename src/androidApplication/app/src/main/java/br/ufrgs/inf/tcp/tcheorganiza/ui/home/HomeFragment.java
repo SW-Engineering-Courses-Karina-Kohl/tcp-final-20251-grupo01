@@ -8,45 +8,50 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import br.ufrgs.inf.tcp.tcheorganiza.R;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
+import br.ufrgs.inf.tcp.tcheorganiza.Utils;
+import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.DisciplinasAdapter;
+import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.TasksAdapter;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
+    private final int maxNumOfTask = 5;
+
+    private final String todayWeekDayInPortuguese = Utils.getTodayWeekDayInPortuguese();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DummyCourse[] courses = {
-                new DummyCourse("08:30", "Fundamentos de Banco de Dados", "116 - 43425"),
-                new DummyCourse("10:30", "Técnicas de Construção de Programas", "112 - 43425"),
-                new DummyCourse("13:30", "Complexidade de Algoritmos - B", "107 - 43425"),
-        };
-        DummyTasks[] tasks = {
-                new DummyTasks("Entrega de trabalho", "24/06/25", "10:30","Técnicas de Construção de Programas"),
-                new DummyTasks("Prova", "30/06/25", "08:30","Fundamentos de Banco de Dados")
 
-        };
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        List<Course> todayCourses = persistence.getDisciplinasList().stream()
+                .filter(course -> (long) course.getTodaySchedule().size() > 0)
+                .collect(Collectors.toList());
+
+        List<TupleTaskCourse> tasks = persistence.getAllTaskByTupleTaskCourse();
+
+        if(tasks.size() > maxNumOfTask) {
+            tasks = tasks.subList(0, maxNumOfTask);
+        }
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         getActivity().setTitle("Hoje");
 
-
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
-        DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(courses);
+        DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(todayCourses);
         recyclerViewCourses.setAdapter(disciplinasAdapter);
 
         RecyclerView recyclerViewTasks = binding.recyclerListAtividades;
         TasksAdapter tasksAdapter = new TasksAdapter(tasks);
         recyclerViewTasks.setAdapter(tasksAdapter);
-
-
 
         return binding.getRoot();
     }

@@ -7,26 +7,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
-import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentDisciplinasBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
+import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.DisciplinasAdapter;
 
 public class DisciplinasFragment extends Fragment  implements View.OnClickListener {
 
     private FragmentDisciplinasBinding binding;
 
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DisciplinasViewModel disciplinaViewModel =
-                new ViewModelProvider(this).get(DisciplinasViewModel.class);
 
         binding = FragmentDisciplinasBinding.inflate(inflater, container, false);
         getActivity().setTitle("Disciplinas");
+
+        RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
+        DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(persistence.getDisciplinasList());
+        recyclerViewCourses.setAdapter(disciplinasAdapter);
+
         return binding.getRoot();
     }
 

@@ -4,30 +4,59 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentCardapioBinding;
-import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentDisciplinasBinding;
-import br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.DisciplinasViewModel;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.Ticket;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
+import br.ufrgs.inf.tcp.tcheorganiza.ui.ticketru.TicketCardFragment;
 
 public class CardapioFragment extends Fragment {
 
     private FragmentCardapioBinding binding;
+
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
+
+    private ViewGroup ticketList;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CardapioViewModel cardapioViewModel =
-                new ViewModelProvider(this).get(CardapioViewModel.class);
 
         binding = FragmentCardapioBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        ticketList = root.findViewById(R.id.ticketList);
+
+
+        for (Ticket ticket :  persistence.registroTickets.getListaTickets()){
+            addTicketFragment(ticket);
+        }
+
         getActivity().setTitle("RU");
-        return binding.getRoot();
+
+        return root;
     }
+
+    public void addTicketFragment(Ticket ticket) {
+        // Cria um novo container para o fragmento
+        FrameLayout container = new FrameLayout(requireContext());
+        int containerId = View.generateViewId();  // Gera ID único
+        container.setId(containerId);
+        ticketList.addView(container);
+
+        // Adiciona o fragmento
+        getChildFragmentManager()
+                .beginTransaction()
+                .add(containerId, new TicketCardFragment(ticket.getCodigo(), ticket.getNumUsos(), ticket.getQuantidade()))
+                .commit();
+    }
+
 
     @Override
     public void onDestroyView() {

@@ -1,4 +1,4 @@
-package br.ufrgs.inf.tcp.tcheorganiza.ui.ticket;
+package br.ufrgs.inf.tcp.tcheorganiza.ui.ticketru;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -16,18 +16,19 @@ import br.ufrgs.inf.tcp.tcheorganiza.R;
 
 public class TicketCardFragment extends Fragment {
 
-    private Integer ticketNumber, remainingUsages, amountBought;
+    private String ticketNumber;
+    private int remainingUsages, amountBought;
     private FloatingActionButton restoreButton, markAsUsedButton;
     private TextView textTicketNumber, textRemainingUsages;
 
     public TicketCardFragment() {
         // Default test data
-        this.ticketNumber = 101792;
+        this.ticketNumber = "00000";
         this.remainingUsages = 5;
         this.amountBought = 5;
     }
 
-    public void configure(Integer ticketNumber, Integer remainingUsages, Integer amountBought) {
+    public TicketCardFragment(String ticketNumber, int remainingUsages, int amountBought) {
         this.ticketNumber = ticketNumber;
         this.remainingUsages = remainingUsages;
         this.amountBought = amountBought;
