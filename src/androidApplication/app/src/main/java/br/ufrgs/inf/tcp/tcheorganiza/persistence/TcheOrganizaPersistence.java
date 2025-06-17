@@ -1,5 +1,7 @@
 package br.ufrgs.inf.tcp.tcheorganiza.persistence;
 
+import org.threeten.bp.LocalDate;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +14,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Teacher;
 import br.ufrgs.inf.tcp.tcheorganiza.model.ru.RegistroTickets;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Exam;
+import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Lab;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Work;
@@ -42,7 +45,7 @@ public class TcheOrganizaPersistence {
     private List<Course> courses = new ArrayList<>();
 
     // TEACHERS
-    //Adds the teachers to a list (best way I found to do it)
+    //Adds the teachers to a list
     public void addTeacherToList(String name, String email, int building, int room){
         teachersList.add(new Teacher(name, email,(new Office(room,building))));
     }
@@ -63,13 +66,31 @@ public class TcheOrganizaPersistence {
         return courses;
     }
 
+    //TASKS
+    public void addTask(Course course, String nameTask, String taskDescription, LocalDate taskDate, String taskType, String taskContent, int room, int building){
+        switch (taskType){
+            case "Prova":
+                course.addTaskToList(new Exam(nameTask,taskDescription,taskDate,false,new Office(room, building), taskContent));
+                break;
+            case "Trabalho":
+                course.addTaskToList(new Work(nameTask,taskDescription,taskDate, false, taskContent));
+                break;
+            case "Laboratório":
+                course.addTaskToList(new Lab(nameTask,taskDescription,taskDate,false,new Office(room,building)));
+                break;
+            case "Tarefa":
+                course.addTaskToList(new Task(nameTask,taskDescription,taskDate,false));
+                break;
+        }
+
+    }
     public List<Task> getAllTasksOrdered() {
         List<Task> allTasksOrdered = new ArrayList<>();
 
         for(Course course: courses){
             allTasksOrdered.addAll(course.getTasks());
         }
-        allTasksOrdered.sort(Comparator.comparingInt(Task::getDate));
+        allTasksOrdered.sort(Comparator.comparing(Task::getDate));
         return allTasksOrdered;
     }
 
@@ -82,7 +103,7 @@ public class TcheOrganizaPersistence {
             }
         }
 
-        result.sort(Comparator.comparingInt(tuple -> tuple.getTask().getDate()));
+        result.sort(Comparator.comparing(tuple -> tuple.getTask().getDate()));
 
         return result;
     }

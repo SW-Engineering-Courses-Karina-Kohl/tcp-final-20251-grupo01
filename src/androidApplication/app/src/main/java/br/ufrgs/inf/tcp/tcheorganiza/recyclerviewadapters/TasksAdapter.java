@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
 
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.util.List;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
@@ -49,7 +51,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
         private MaterialTextView taskType;
         private MaterialTextView taskDate;
-        private MaterialTextView taskTime;
         private MaterialTextView taskCourse;
 
 
@@ -57,7 +58,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
             super(itemView);
             taskType = itemView.findViewById(R.id.text_view_tipo);
             taskDate = itemView.findViewById(R.id.text_view_date);
-            taskTime = itemView.findViewById(R.id.text_view_horario);
             taskCourse = itemView.findViewById(R.id.text_view_disciplina);
         }
         public void bind(TupleTaskCourse tupleTaskCourse){
@@ -76,9 +76,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
                 taskTypeString = "Tarefa";
             }
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String formattedDate = task.getDate().format(formatter);
             taskType.setText(taskTypeString);
-            taskDate.setText(task.getDate()); // TODO: Fix, current getDate is int
-            taskTime.setText(task.getDate()); //  TODO: Fix, current getDate is int
+            taskDate.setText(formattedDate);
             taskCourse.setText(courseName);
         }
     }

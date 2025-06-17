@@ -48,7 +48,7 @@
                 android:id="@+id/text_input_predio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
 <!--            Sala-->
@@ -64,7 +64,7 @@
                 android:id="@+id/text_input_sala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"/>
         </com.google.android.material.textfield.TextInputLayout>

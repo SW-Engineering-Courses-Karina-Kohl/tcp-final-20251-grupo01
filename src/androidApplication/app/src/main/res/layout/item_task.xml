@@ -24,16 +24,9 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="24/06/25"
                 android:textAlignment="center"
-                android:textSize="18sp" />
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/text_view_horario"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-medium"
-                android:text="10:30"
-                android:textAlignment="center"
-                android:textSize="18sp" />
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
+
 
         </LinearLayout>
         <com.google.android.material.textview.MaterialTextView

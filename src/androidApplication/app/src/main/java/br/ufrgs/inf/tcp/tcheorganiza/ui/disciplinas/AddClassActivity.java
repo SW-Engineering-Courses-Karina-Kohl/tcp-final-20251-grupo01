@@ -6,12 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityAddClassBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.ui.professor.AddProfessorActivity;
 
 public class AddClassActivity extends AppCompatActivity {
 
     private ActivityAddClassBinding binding;
+    NewCourseFragment newCourseFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,13 @@ public class AddClassActivity extends AppCompatActivity {
 
         binding = ActivityAddClassBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        newCourseFragment = (NewCourseFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view_new_course);
+        setupAddProfButton();
+        setupAddDisciplinaButton();
+
+
+    }
+    private void setupAddProfButton(){
         binding.buttonAddProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +35,13 @@ public class AddClassActivity extends AppCompatActivity {
                 startActivity(newAddProfIntent);
             }
         });
-
+    }
+    private void setupAddDisciplinaButton(){
+        binding.buttonAddDisciplinas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean save = newCourseFragment.saveCourse();
+            }
+        });
     }
 }
