@@ -35,8 +35,8 @@ public class CourseTest {
         course = new Course("INF01120","TCP",4);
         empty_course = new Course();
 
-        tasks = new ArrayList<>(List.of(new Task("study", "description", 15, false)));  
-        task = new Task("lab", "lab5", 15, false);  
+        tasks = new ArrayList<>(List.of(new Task("study", "description",java.time.LocalDate.of(2025, 6, 17), false)));  
+        task = new Task("lab", "lab5", java.time.LocalDate.of(2025, 6, 17), false);  
     }
 
     @Test

@@ -1,13 +1,14 @@
 package tasks;
+import java.time.LocalDate;
 
 public class Task{
 
     private String name;
     private String description;
-    private int date;
+    private LocalDate date;
     private boolean status;
 
-    public Task(String name, String description, int date, boolean status){
+    public Task(String name, String description, LocalDate date, boolean status){
         this.name = name;
         this.description = description;
         this.date = date;
@@ -22,7 +23,7 @@ public class Task{
         return description;
     }
 
-    public int getDate(){
+    public LocalDate getDate(){
         return date;
     }
 
@@ -38,7 +39,7 @@ public class Task{
         this.description = description;
     }
 
-    public void setDate(int date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 

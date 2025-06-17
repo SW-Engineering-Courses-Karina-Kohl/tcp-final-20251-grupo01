@@ -12,14 +12,14 @@ public class ExamTest {
 
     @BeforeEach
     public void setUp() {
-        exam = new Exam("final exam", "all of the semester", 15, false, "101", "chapter 1 a 5");
+        exam = new Exam("final exam", "all of the semester", java.time.LocalDate.of(2025, 6, 17), false, "101", "chapter 1 a 5");
     }
 
     @Test
     public void testInheritedAttributes() {
         assertEquals("final exam", exam.getName());
         assertEquals("all of the semester", exam.getDescription());
-        assertEquals(15, exam.getDate());
+        assertEquals(java.time.LocalDate.of(2025, 6, 17), exam.getDate());
         assertFalse(exam.getStatus());
     }
 

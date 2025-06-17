@@ -1,15 +1,20 @@
 package subjectManager;
 import tasks.*;
+import courses.*;
 import java.util.ArrayList;
-
-import java.util.Collection;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class subjectManager {
+public class SubjectManager {
+
     public List<Task> allTasksOrdered = new ArrayList<>();
-    for(Subjects i: subjects){
-        allTasksOrdered.addAll(i.getTasks());
+
+    public List<Task> getAllTasksOrdered(List<Course> courses) {
+        for(Course i: courses){
+            allTasksOrdered.addAll(i.getTasks());
+        }
+        Collections.sort(allTasksOrdered, Comparator.comparing(Task::getDate));
+        return allTasksOrdered;
     }
-    Collection.sort(allTasksOrdered);
-    return allTasksOrdered;
-}
+};

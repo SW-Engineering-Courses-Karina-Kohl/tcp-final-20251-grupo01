@@ -1,7 +1,4 @@
 package app;
-import tasks.*;
-import courses.*;
-import java.time.LocalTime;
 
 public class Main{
     

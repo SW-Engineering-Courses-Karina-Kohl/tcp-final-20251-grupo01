@@ -13,14 +13,14 @@ public class TaskTest {
 
     @BeforeEach
     public void setUp() {
-        task = new Task("study", "description", 15, false);
+        task = new Task("study", "description", java.time.LocalDate.of(2025, 6, 17), false);
     }
 
     @Test
     public void testConstructorAndGetters() {
         assertEquals("study", task.getName());
         assertEquals("description", task.getDescription());
-        assertEquals(15, task.getDate());
+        assertEquals(java.time.LocalDate.of(2025, 6, 17), task.getDate());
         assertFalse(task.getStatus());
     }
 
@@ -28,12 +28,12 @@ public class TaskTest {
     public void testSetters() {
         task.setName("trainning");
         task.setDescription("running");
-        task.setDate(20);
+        task.setDate(java.time.LocalDate.of(2025, 6, 15));
         task.setStatus(true);
 
         assertEquals("trainning", task.getName());
         assertEquals("running", task.getDescription());
-        assertEquals(20, task.getDate());
+        assertEquals(java.time.LocalDate.of(2025, 6, 15), task.getDate());
         assertTrue(task.getStatus());
     }
 }

@@ -12,14 +12,14 @@ public class WorkTest {
 
     @BeforeEach
     public void setUp() {
-        work = new Work("project", "implements x", 30, false, "build logic");
+        work = new Work("project", "implements x", java.time.LocalDate.of(2025, 6, 17), false, "build logic");
     }
 
     @Test
     public void testInheritedAttributes() {
         assertEquals("project", work.getName());
         assertEquals("implements x", work.getDescription());
-        assertEquals(30, work.getDate());
+        assertEquals(java.time.LocalDate.of(2025, 6, 17), work.getDate());
         assertFalse(work.getStatus());
     }
 

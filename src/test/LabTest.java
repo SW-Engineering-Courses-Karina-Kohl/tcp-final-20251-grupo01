@@ -12,14 +12,14 @@ public class LabTest {
 
     @BeforeEach
     public void setUp() {
-        lab = new Lab("Lab 1", "Bubble sort", 12, false, "302");
+        lab = new Lab("Lab 1", "Bubble sort", java.time.LocalDate.of(2025, 6, 17), false, "302");
     }
 
     @Test
     public void testInheritedAttributes() {
         assertEquals("Lab 1", lab.getName());
         assertEquals("Bubble sort", lab.getDescription());
-        assertEquals(12, lab.getDate());
+        assertEquals(java.time.LocalDate.of(2025, 6, 17), lab.getDate());
         assertFalse(lab.getStatus());
     }
 

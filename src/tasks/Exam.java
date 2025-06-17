@@ -1,11 +1,13 @@
 package tasks;
 
+import java.time.LocalDate;
+
 public class Exam extends Task{
 
     private String room;
     private String content;
 
-    public Exam(String name, String description, int date, boolean status, String room, String content){
+    public Exam(String name, String description, LocalDate date, boolean status, String room, String content){
         super(name, description, date, status);
         this.room = room;
         this.content = content;
