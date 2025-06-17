@@ -11,21 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
-
 import org.threeten.bp.LocalTime;
-import org.threeten.bp.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import br.ufrgs.inf.tcp.tcheorganiza.NewProfessorActivity;
 import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Office;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
@@ -157,12 +152,28 @@ public class NewCourseFragment extends Fragment {
 //            Toast.makeText(getContext(), "Adicione pelo menos um horário de aula válido", Toast.LENGTH_SHORT).show();
             return false;
         }
+        TcheOrganizaPersistence.getInstance().addDisciplinaToList(courseName,selectedTeacherInstance,scheduleList);
+
         new AlertDialog.Builder(getContext())
                 .setMessage("Disciplina adicionada com sucesso!")
-                .setPositiveButton("OK", (dialog, which) -> {})
+                .setPositiveButton("OK", (dialog, which) -> {
+                    clearTextFields();})
                 .show();
-        TcheOrganizaPersistence.getInstance().addDisciplinaToList(courseName,selectedTeacherInstance,scheduleList);
+
 //        Toast.makeText(getContext(), "Curso salvo com sucesso", Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+    // Clearing fields for next Disciplina to be add
+    private void clearTextFields(){
+
+        courseNameEditText.setText("");
+        courseNameEditText.clearFocus();
+
+        courseEndDateEditText.setText("");
+        courseEndDateEditText.clearFocus();
+
+        professorAutoComplete.setText("");
+        professorAutoComplete.clearFocus();
     }
 }

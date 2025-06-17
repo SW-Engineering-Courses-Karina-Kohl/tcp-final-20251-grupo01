@@ -93,4 +93,20 @@ public class CourseHourFragment extends Fragment {
     public String getRoom() {
         return editRoom.getText() != null ? editRoom.getText().toString() : "";
     }
+    public void resetFields(){
+        spinnerWeekday.setSelection(0);
+        spinnerWeekday.clearFocus();
+
+        editStartTime.setText("");
+        editStartTime.clearFocus();
+
+        editEndTime.setText("");
+        editEndTime.clearFocus();
+
+        editBuilding.setText("");
+        editBuilding.clearFocus();
+
+        editRoom.setText("");
+        editRoom.clearFocus();
+    }
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityNewClassBinding;
@@ -41,13 +40,10 @@ public class NewClassActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean save = newCourseFragment.saveCourse();
-                clearTextFields();
             }
         });
     }
 
-    // Clearing fields for next Disciplina to be add
-    private void clearTextFields(){
-    }
+
 
 }

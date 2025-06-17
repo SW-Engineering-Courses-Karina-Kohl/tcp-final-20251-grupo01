@@ -40,7 +40,7 @@ public class AddClassActivity extends AppCompatActivity {
         binding.buttonAddDisciplinas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean save = newCourseFragment.saveCourse();
+                boolean saved = newCourseFragment.saveCourse();
             }
         });
     }
