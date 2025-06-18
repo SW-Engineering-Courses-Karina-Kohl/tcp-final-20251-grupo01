@@ -1,4 +1,4 @@
-package test;
+package br.ufrgs.inf.tcp.tcheorganiza;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Teacher;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Office;
 

@@ -1,4 +1,4 @@
-package test;
+package br.ufrgs.inf.tcp.tcheorganiza;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Office;
 
 import org.junit.jupiter.api.BeforeEach;

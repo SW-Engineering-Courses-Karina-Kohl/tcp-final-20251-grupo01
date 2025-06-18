@@ -5,6 +5,8 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.*;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalTime;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -24,6 +26,7 @@ public class CourseTest {
     private Schedule schedule2;
     private Teacher teacher;
     private Task task;
+    private LocalDate date = LocalDate.of(2025,6,23);
 
     @BeforeEach
     public void setUp() {
@@ -37,8 +40,8 @@ public class CourseTest {
         course = new Course("INF01120","TCP",4);
         empty_course = new Course();
 
-        tasks = new ArrayList<>(List.of(new Task("study", "description", 15, false)));  
-        task = new Task("lab", "lab5", 15, false);  
+        tasks = new ArrayList<>(List.of(new Task("study", "description", date, false)));
+        task = new Task("lab", "lab5", date, false);
     }
 
     @Test
