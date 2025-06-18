@@ -29,7 +29,7 @@ public class Task{
         return date;
     }
 
-    public boolean getStatus(){
+    public boolean getDone(){
         return done;
     }
 
@@ -45,8 +45,8 @@ public class Task{
         this.date = date;
     }
 
-    public void setStatus(boolean status){
-        this.done = status;
+    public void setDone(boolean done){
+        this.done = done;
     }
 
 }
