@@ -1,5 +1,3 @@
-package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
-
 import java.time.LocalDate;
 
 public class Ticket {

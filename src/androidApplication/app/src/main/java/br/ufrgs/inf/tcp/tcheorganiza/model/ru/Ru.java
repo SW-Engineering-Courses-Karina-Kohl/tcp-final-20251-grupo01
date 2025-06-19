@@ -1,6 +1,3 @@
-package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
-
-
 public class Ru {
     private String nome;
     private Localizacao localizacao;
@@ -25,8 +22,8 @@ public class Ru {
         return nome;
     }
 
-    public void setLocalizacao(Localizacao novLocalizacao) {
-        this.localizacao = novLocalizacao;
+    public void setLocalizacao(Localizacao novaLocalizacao) {
+        this.localizacao = novaLocalizacao;
     }
 
     public Localizacao getLocalizacao() {

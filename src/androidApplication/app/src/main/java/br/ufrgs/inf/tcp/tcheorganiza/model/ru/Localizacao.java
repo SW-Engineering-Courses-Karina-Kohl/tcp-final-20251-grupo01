@@ -1,5 +1,3 @@
-package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
-
 // Localizacao.java
 public class Localizacao {
     private String campus;

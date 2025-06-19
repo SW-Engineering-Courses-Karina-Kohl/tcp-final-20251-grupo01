@@ -1,6 +1,3 @@
-package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +11,6 @@ public class RegistroTickets {
         this.numTicketsDisponiveis = 0;
     }
 
-    // Setters
     public List<Ticket> getListaTickets() {
         return this.listaTickets;
     }
@@ -30,8 +26,9 @@ public class RegistroTickets {
 
     public boolean utilizarTicket(String codigoTicket) {
         for (Ticket ticket : listaTickets) {
-            if (ticket.getCodigo() == codigoTicket) {
+            if (ticket.getCodigo().equals(codigoTicket)) {
                 if (ticket.usarTicket()) { 
+                    ticket.atualizarNumUsos();  // <-- Adicione isto
                     numTicketsDisponiveis--;
                     return true;
                 }
@@ -39,12 +36,13 @@ public class RegistroTickets {
         }
         return false;
     }
+    
 
     public void removerUtilizados() {
         for (int i = this.listaTickets.size() - 1; i >= 0; i--) {
             Ticket ticket = this.listaTickets.get(i);
-
-            if (ticket.getNumUsos() <= 0) {
+    
+            if (ticket.getNumUsos() >= ticket.getQuantidade()) {
                 this.listaTickets.remove(i); 
             }
         }
