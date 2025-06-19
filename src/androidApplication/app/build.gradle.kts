@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("eclipse")
 }
 
 android {
@@ -32,7 +33,26 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    //SourceSets to put the right classpath because we are using non convetional ones
+    sourceSets {
+        getByName("main") {
+            java.srcDirs("src/main/java")
+            manifest.srcFile("src/main/AndroidManifest.xml")
+            res.srcDirs("src/main/res")
+        }
+        getByName("test") {
+            java.srcDirs("src/test/java")
+        }
+        getByName("androidTest") {
+            java.srcDirs("src/androidTest/java")
+        }
+    }
 }
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
 
 dependencies {
 

@@ -1,5 +1,6 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 
@@ -10,15 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
-
 import org.threeten.bp.LocalTime;
-import org.threeten.bp.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -123,11 +120,12 @@ public class NewCourseFragment extends Fragment {
                 String day = ((CourseHourFragment) fragment).getWeekDay();
                 String start = ((CourseHourFragment) fragment).getStartTime();
                 String end = ((CourseHourFragment) fragment).getEndTime();
-                String location = ((CourseHourFragment) fragment).getLocation();
+                String building = ((CourseHourFragment) fragment).getBuilding();
+                String room = ((CourseHourFragment) fragment).getRoom();
 
                 // Só adiciona se tiver todos os campos preenchidos
                 if (!day.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
-                    scheduleList.add(new Schedule(day,new Office(Integer.parseInt(location)), LocalTime.parse(start),LocalTime.parse(end)));
+                    scheduleList.add(new Schedule(day,new Office(Integer.parseInt(room),Integer.parseInt(building)), LocalTime.parse(start),LocalTime.parse(end)));
 //                    classDays.add(day);
 //                    classStartHours.add(start);
 //                    classEndHours.add(end);
@@ -138,17 +136,44 @@ public class NewCourseFragment extends Fragment {
         }
 
         if (courseName.isEmpty() || endDate.isEmpty() || selectedTeacherInstance == null) {
-            Toast.makeText(getContext(), "Preencha todos os campos obrigatórios", Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(getContext())
+                    .setMessage("Preencha todos os campos obrigatórios")
+                    .setPositiveButton("OK", (dialog, which) -> {})
+                    .show();
+//            Toast.makeText(getContext(), "Preencha todos os campos obrigatórios", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (hoursCount == 0) {
-            Toast.makeText(getContext(), "Adicione pelo menos um horário de aula válido", Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(getContext())
+                    .setMessage("Adicione pelo menos um horário de aula válido")
+                    .setPositiveButton("OK", (dialog, which) -> {})
+                    .show();
+//            Toast.makeText(getContext(), "Adicione pelo menos um horário de aula válido", Toast.LENGTH_SHORT).show();
             return false;
         }
-
         TcheOrganizaPersistence.getInstance().addDisciplinaToList(courseName,selectedTeacherInstance,scheduleList);
-        Toast.makeText(getContext(), "Curso salvo com sucesso", Toast.LENGTH_SHORT).show();
+
+        new AlertDialog.Builder(getContext())
+                .setMessage("Disciplina adicionada com sucesso!")
+                .setPositiveButton("OK", (dialog, which) -> {
+                    clearTextFields();})
+                .show();
+
+//        Toast.makeText(getContext(), "Curso salvo com sucesso", Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+    // Clearing fields for next Disciplina to be add
+    private void clearTextFields(){
+
+        courseNameEditText.setText("");
+        courseNameEditText.clearFocus();
+
+        courseEndDateEditText.setText("");
+        courseEndDateEditText.clearFocus();
+
+        professorAutoComplete.setText("");
+        professorAutoComplete.clearFocus();
     }
 }

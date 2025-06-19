@@ -1,17 +1,20 @@
 package  br.ufrgs.inf.tcp.tcheorganiza.model.tasks;
 
+
+import org.threeten.bp.LocalDate;
+
 public class Task{
 
     private String name;
     private String description;
-    private int date;
-    private boolean status;
+    private LocalDate date;
+    private boolean done;
 
-    public Task(String name, String description, int date, boolean status){
+    public Task(String name, String description, LocalDate date, boolean done){
         this.name = name;
         this.description = description;
         this.date = date;
-        this.status = status;
+        this.done = done;
     }
 
     public String getName(){
@@ -22,12 +25,12 @@ public class Task{
         return description;
     }
 
-    public int getDate(){
+    public LocalDate getDate(){
         return date;
     }
 
     public boolean getStatus(){
-        return status;
+        return done;
     }
 
     public void setName(String name){
@@ -38,12 +41,12 @@ public class Task{
         this.description = description;
     }
 
-    public void setDate(int date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 
     public void setStatus(boolean status){
-        this.status = status;
+        this.done = status;
     }
 
 }

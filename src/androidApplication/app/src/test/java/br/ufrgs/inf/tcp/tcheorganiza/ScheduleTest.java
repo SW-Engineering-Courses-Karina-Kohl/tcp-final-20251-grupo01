@@ -1,4 +1,4 @@
-package test;
+package br.ufrgs.inf.tcp.tcheorganiza;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Office;
 import org.threeten.bp.LocalTime;

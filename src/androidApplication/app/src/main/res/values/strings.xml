@@ -25,8 +25,9 @@
     </string-array>
     <string-array name="dropdown_options_tipo_atividade">
         <item>Prova</item>
-        <item>Entrega de trabalho</item>
-        <item>Questionário</item>
+        <item>Trabalho</item>
+        <item>Laboratório</item>
+        <item>Tarefa</item>
     </string-array>
 
     <string-array name="dropdown_options_RU">

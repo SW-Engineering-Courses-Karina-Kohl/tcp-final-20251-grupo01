@@ -61,7 +61,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
             List<Schedule> todaySchedules = course.getTodaySchedule();
             if (!todaySchedules.isEmpty()) {
                 Schedule todaySchedule = todaySchedules.get(0);
-                classroom.setText(todaySchedule.getOffice().toString());
+                classroom.setText(todaySchedule.getOffice().getOfficeDetails().toString());
                 courseTime.setText("ARRUMAR");
                         //todaySchedule.getBeginTime().toString());
             }

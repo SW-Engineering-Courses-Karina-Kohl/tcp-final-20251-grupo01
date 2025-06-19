@@ -24,7 +24,7 @@
 
             <!-- Fragment Container dentro do scroll -->
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/newCourseContainerView"
+                android:id="@+id/fragment_container_view_new_course"
                 android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.disciplinas.NewCourseFragment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

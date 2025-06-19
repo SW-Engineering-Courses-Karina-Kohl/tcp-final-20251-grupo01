@@ -68,7 +68,7 @@ public class NewProfessorActivity extends AppCompatActivity {
             saveInPersistence(professorName,professorEmail,profPredio,profSala);
 
             new AlertDialog.Builder(NewProfessorActivity.this)
-                    .setMessage("Professor adicionado com sucesso!")
+                    .setMessage("Professor(a) adicionado(a) com sucesso!")
                     .setPositiveButton("OK", (dialog, which) -> {
                     clearTextFields();})
                     .show();

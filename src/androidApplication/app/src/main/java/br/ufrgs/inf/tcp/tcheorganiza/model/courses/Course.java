@@ -21,6 +21,7 @@ public class Course {
 
     @NonNull
     @Override
+
     public String toString(){
         return name;
     }
@@ -90,6 +91,9 @@ public class Course {
         this.tasks = new ArrayList<>();
     }
 
+    public void addTaskToList(Task task){
+        tasks.add(task);
+    }
     // SETTERS =============================================================
     public void setCode(String code) {
         if (code == null || code.isEmpty()) {
@@ -175,4 +179,5 @@ public class Course {
                         .equalsIgnoreCase(Utils.getTodayWeekDayInPortuguese()))
                 .collect(Collectors.toList());
     }
+
 }

@@ -22,7 +22,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.R;
 public class CourseHourFragment extends Fragment {
 
     private Spinner spinnerWeekday;
-    private TextInputEditText editStartTime, editEndTime, editLocation;
+    private TextInputEditText editStartTime, editEndTime, editBuilding, editRoom;
     private FloatingActionButton deleteButton;
 
     public CourseHourFragment() {
@@ -37,7 +37,9 @@ public class CourseHourFragment extends Fragment {
         spinnerWeekday = root.findViewById(R.id.spinnerWeekday);
         editStartTime = root.findViewById(R.id.editStartTime);
         editEndTime = root.findViewById(R.id.editEndTime);
-        editLocation = root.findViewById(R.id.editLocation);
+        editBuilding = root.findViewById(R.id.textInputPredio);
+        editRoom = root.findViewById(R.id.textInputSala);
+//        editLocation = root.findViewById(R.id.editLocation);
         deleteButton = root.findViewById(R.id.buttonDeleteHour);
 
         editStartTime.setOnClickListener(v -> showTimePicker(editStartTime));
@@ -82,7 +84,29 @@ public class CourseHourFragment extends Fragment {
         return editEndTime.getText() != null ? editEndTime.getText().toString() : "";
     }
 
-    public String getLocation() {
-        return editLocation.getText() != null ? editLocation.getText().toString() : "";
+//    public String getLocation() {
+//        return editLocation.getText() != null ? editLocation.getText().toString() : "";
+//    }
+    public String getBuilding() {
+        return editBuilding.getText() != null ? editBuilding.getText().toString() : "";
+    }
+    public String getRoom() {
+        return editRoom.getText() != null ? editRoom.getText().toString() : "";
+    }
+    public void resetFields(){
+        spinnerWeekday.setSelection(0);
+        spinnerWeekday.clearFocus();
+
+        editStartTime.setText("");
+        editStartTime.clearFocus();
+
+        editEndTime.setText("");
+        editEndTime.clearFocus();
+
+        editBuilding.setText("");
+        editBuilding.clearFocus();
+
+        editRoom.setText("");
+        editRoom.clearFocus();
     }
 }
