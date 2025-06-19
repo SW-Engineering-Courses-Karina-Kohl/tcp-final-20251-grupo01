@@ -1,3 +1,5 @@
+package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
+
 import java.util.ArrayList;
 import java.util.List;
 
