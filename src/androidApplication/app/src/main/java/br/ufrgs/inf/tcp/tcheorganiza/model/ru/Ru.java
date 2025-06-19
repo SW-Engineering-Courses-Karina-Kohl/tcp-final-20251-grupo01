@@ -1,3 +1,5 @@
+package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
+
 public class Ru {
     private String nome;
     private Localizacao localizacao;
