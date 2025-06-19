@@ -1,3 +1,5 @@
+package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
