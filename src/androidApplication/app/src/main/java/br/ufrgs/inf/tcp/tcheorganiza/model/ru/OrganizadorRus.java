@@ -13,6 +13,8 @@ public class OrganizadorRus {
     private List<Ru> listaRus;
     private String nomeRuFavorito;
 
+    public static final String URLCardapioPrae = "https://www.ufrgs.br/prae/cardapio-ru/";
+
     public OrganizadorRus() {
         this.listaRus = new ArrayList<>();
         this.nomeRuFavorito = null;

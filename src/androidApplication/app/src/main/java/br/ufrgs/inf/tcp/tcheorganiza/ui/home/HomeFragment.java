@@ -10,16 +10,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import br.ufrgs.inf.tcp.tcheorganiza.R;
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.FragmentHomeBinding;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.DiaDaSemana;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.Ru;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.TupleTaskCourse;
 import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 import br.ufrgs.inf.tcp.tcheorganiza.Utils;
 import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.DisciplinasAdapter;
 import br.ufrgs.inf.tcp.tcheorganiza.recyclerviewadapters.TasksAdapter;
+import br.ufrgs.inf.tcp.tcheorganiza.ui.cardapio.RUMealCardViewFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -55,6 +61,25 @@ public class HomeFragment extends Fragment {
         tasksAdapter.setEmptyMessage("Sem tarefas por enquanto. Aproveite o tempo livre!");
         recyclerViewTasks.setAdapter(tasksAdapter);
 
+        Ru favoriteRU;
+        try {
+            favoriteRU = persistence.RUOrganizer.buscarRU(persistence.RUOrganizer.getNomeRuFavorito());
+        } catch (Exception e) {
+            favoriteRU = persistence.RUOrganizer.getRus().get(0);
+        }
+
+        DiaDaSemana todayWeekDay = getTodayWeekDay();
+
+        List<String> todaysLunch = favoriteRU.getCardapioAlmoco().getItens().get(todayWeekDay);
+        List<String> todaysDinner = favoriteRU.getCardapioJanta().getItens().get(todayWeekDay);
+
+        RUMealCardViewFragment fragment = new RUMealCardViewFragment();
+//        fragment.setMeals(todaysLunch, todaysDinner);
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.mealFragmentContainerView, fragment)
+                .commit();
+
         return binding.getRoot();
     }
 
@@ -68,5 +93,23 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private DiaDaSemana getTodayWeekDay(){
+        DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
+        switch (dayOfWeek) {
+            case MONDAY:
+                return DiaDaSemana.SEGUNDA;
+            case TUESDAY:
+                return DiaDaSemana.TERCA;
+            case WEDNESDAY:
+                return DiaDaSemana.QUARTA;
+            case THURSDAY:
+                return DiaDaSemana.QUINTA;
+            case FRIDAY:
+                return DiaDaSemana.SEXTA;
+            default:
+               return DiaDaSemana.SEXTA;
+        }
     }
 }
