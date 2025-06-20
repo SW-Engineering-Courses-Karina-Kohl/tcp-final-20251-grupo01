@@ -26,13 +26,12 @@
             android:name=".NewProfessorActivity"
             android:exported="false"
             android:label="Adicionar professores"
-            android:parentActivityName=".StartingPageActivity"/>
+            android:parentActivityName=".StartingPageActivity" />
         <activity
             android:name=".NewClassActivity"
             android:exported="false"
             android:label="Adicionar disciplinas"
-            android:parentActivityName=".NewProfessorActivity"
-             />
+            android:parentActivityName=".NewProfessorActivity" />
         <activity
             android:name=".NewTaskActivity"
             android:exported="false"
@@ -69,6 +68,11 @@
             android:exported="false"
             android:label="Adicionar novo professor"
             android:parentActivityName=".ui.disciplinas.AddClassActivity" />
+        <activity
+            android:name=".ui.ticketru.RegisterTicket"
+            android:exported="false"
+            android:label="Registrar novo ticket"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

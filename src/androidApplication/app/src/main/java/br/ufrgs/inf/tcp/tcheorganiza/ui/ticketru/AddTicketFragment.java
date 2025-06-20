@@ -17,9 +17,14 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.Ticket;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 
 public class AddTicketFragment extends Fragment {
 
@@ -29,6 +34,8 @@ public class AddTicketFragment extends Fragment {
     private MaterialButton saveButton;
 
     private Calendar selectedDate = Calendar.getInstance();
+
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
 
     public AddTicketFragment() {
         // Required empty public constructor
@@ -47,11 +54,8 @@ public class AddTicketFragment extends Fragment {
         ticketNumberEditText = view.findViewById(R.id.ticketNumber);
         ticketAmountEditText = view.findViewById(R.id.ticketAmount);
         boughtOnEditText = view.findViewById(R.id.boughtOn);
-        saveButton = view.findViewById(R.id.saveButton);
 
         boughtOnEditText.setOnClickListener(v -> showDatePicker());
-
-        saveButton.setOnClickListener(v -> saveTicket());
     }
 
     private void showDatePicker() {
@@ -71,17 +75,42 @@ public class AddTicketFragment extends Fragment {
         datePickerDialog.show();
     }
 
-    private void saveTicket() {
-        String ticketNumber = ticketNumberEditText.getText().toString();
-        String ticketAmount = ticketAmountEditText.getText().toString();
-        String boughtOn = boughtOnEditText.getText().toString();
+    public void saveTicket() {
+        String ticketNumber = ticketNumberEditText.getText().toString().trim();
+        String ticketAmountText = ticketAmountEditText.getText().toString().trim();
+        String boughtOnText = boughtOnEditText.getText().toString().trim();
 
-        if (ticketNumber.isEmpty() || ticketAmount.isEmpty() || boughtOn.isEmpty()) {
+        if (ticketNumber.isEmpty() || ticketAmountText.isEmpty() || boughtOnText.isEmpty()) {
             Toast.makeText(requireContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Aqui você pode salvar o ticket no banco ou onde quiser
+        int ticketAmount;
+        LocalDate boughtOnDate;
+
+        try {
+            ticketAmount = Integer.parseInt(ticketAmountText);
+        } catch (NumberFormatException e) {
+            Toast.makeText(requireContext(), "Quantidade inválida", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            boughtOnDate = LocalDate.parse(boughtOnText, formatter);
+        } catch (DateTimeParseException e) {
+            Toast.makeText(requireContext(), "Data inválida. Use o formato dd/MM/yyyy", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Ticket newTicket = new Ticket(ticketNumber, boughtOnDate, ticketAmount);
+        persistence.registroTickets.registrarTickets(newTicket);
+
+        ticketNumberEditText.setText("");
+        ticketAmountEditText.setText("");
+        boughtOnEditText.setText("");
+
+
         Toast.makeText(requireContext(), "Ticket salvo com sucesso!", Toast.LENGTH_SHORT).show();
     }
 }
