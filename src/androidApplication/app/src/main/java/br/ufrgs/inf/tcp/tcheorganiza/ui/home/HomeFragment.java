@@ -47,10 +47,12 @@ public class HomeFragment extends Fragment {
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
         DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(todayCourses);
+        disciplinasAdapter.setEmptyMessage("Nenhuma aula hoje! Aproveite o dia :)");
         recyclerViewCourses.setAdapter(disciplinasAdapter);
 
         RecyclerView recyclerViewTasks = binding.recyclerListAtividades;
         TasksAdapter tasksAdapter = new TasksAdapter(tasks);
+        tasksAdapter.setEmptyMessage("Sem tarefas por enquanto. Aproveite o tempo livre!");
         recyclerViewTasks.setAdapter(tasksAdapter);
 
         return binding.getRoot();

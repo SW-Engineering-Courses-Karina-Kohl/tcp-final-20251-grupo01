@@ -35,6 +35,7 @@ public class TasksFragment extends Fragment  implements View.OnClickListener {
 
         RecyclerView recyclerViewTasks = binding.recyclerListAtividades;
         TasksAdapter tasksAdapter = new TasksAdapter(tasks);
+        tasksAdapter.setEmptyMessage("Sem tarefas cadastradas.");
         recyclerViewTasks.setAdapter(tasksAdapter);
 
         return binding.getRoot();
