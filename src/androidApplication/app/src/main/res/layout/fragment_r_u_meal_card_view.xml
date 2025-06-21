@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.cardapio.RUMealCardViewFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Blank fragment" />
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
-</FrameLayout>
+        <!-- Lunch Meals Table -->
+        <TableLayout
+            android:id="@+id/lunchMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <!-- Header spanning 3 columns -->
+            <TableRow>
+                <TextView
+                    android:text="Almoço"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_span="3"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <!-- 3 Rows x 3 Columns -->
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Dinner Meals Table -->
+        <TableLayout
+            android:id="@+id/dinnerMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <!-- Header spanning 3 columns -->
+            <TableRow>
+                <TextView
+                    android:text="Jantar"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_span="3"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <!-- 3 Rows x 3 Columns -->
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+                <TextView android:text="" android:padding="8dp" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+</ScrollView>

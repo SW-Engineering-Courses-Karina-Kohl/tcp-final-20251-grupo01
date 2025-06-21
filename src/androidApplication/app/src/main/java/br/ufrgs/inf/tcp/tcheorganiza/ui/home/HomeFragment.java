@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.textview.MaterialTextView;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -49,6 +52,7 @@ public class HomeFragment extends Fragment {
         }
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        ConstraintLayout root = binding.getRoot();
         getActivity().setTitle("Hoje");
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
@@ -65,22 +69,29 @@ public class HomeFragment extends Fragment {
         try {
             favoriteRU = persistence.RUOrganizer.buscarRU(persistence.RUOrganizer.getNomeRuFavorito());
         } catch (Exception e) {
-            favoriteRU = persistence.RUOrganizer.getRus().get(0);
+            if (!persistence.RUOrganizer.getRus().isEmpty()) {
+                favoriteRU = persistence.RUOrganizer.getRus().get(0);
+            } else {
+                favoriteRU = null;
+            }
         }
 
         DiaDaSemana todayWeekDay = getTodayWeekDay();
+
+         MaterialTextView weekDayTextView = root.findViewById(R.id.todat_weekday_menu);
+         weekDayTextView.setText(favoriteRU.getNome() + " - " + todayWeekDay.name());
 
         List<String> todaysLunch = favoriteRU.getCardapioAlmoco().getItens().get(todayWeekDay);
         List<String> todaysDinner = favoriteRU.getCardapioJanta().getItens().get(todayWeekDay);
 
         RUMealCardViewFragment fragment = new RUMealCardViewFragment();
-//        fragment.setMeals(todaysLunch, todaysDinner);
+        fragment.setMeals(todaysLunch, todaysDinner);
         getParentFragmentManager()
                 .beginTransaction()
                 .replace(R.id.mealFragmentContainerView, fragment)
                 .commit();
 
-        return binding.getRoot();
+        return root;
     }
 
     @Override
