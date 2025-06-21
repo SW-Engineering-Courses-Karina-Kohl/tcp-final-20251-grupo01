@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
             case FRIDAY:
                 return DiaDaSemana.SEXTA;
             default:
-               return DiaDaSemana.SEXTA;
+               return DiaDaSemana.SEGUNDA;
         }
     }
 }
