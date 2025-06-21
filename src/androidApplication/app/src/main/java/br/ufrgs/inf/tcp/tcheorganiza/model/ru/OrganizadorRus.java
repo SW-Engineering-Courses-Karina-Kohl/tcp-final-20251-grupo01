@@ -4,7 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 
 import java.io.IOException;
 import java.util.*;

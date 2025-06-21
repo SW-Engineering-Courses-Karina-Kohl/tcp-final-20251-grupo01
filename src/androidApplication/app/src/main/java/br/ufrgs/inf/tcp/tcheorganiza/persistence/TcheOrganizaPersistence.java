@@ -2,7 +2,7 @@ package br.ufrgs.inf.tcp.tcheorganiza.persistence;
 
 import org.threeten.bp.LocalDate;
 
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

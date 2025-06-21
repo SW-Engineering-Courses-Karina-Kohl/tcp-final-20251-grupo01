@@ -6,7 +6,7 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.ru.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
