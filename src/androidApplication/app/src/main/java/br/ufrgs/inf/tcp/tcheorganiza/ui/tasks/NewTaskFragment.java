@@ -1,5 +1,8 @@
 package br.ufrgs.inf.tcp.tcheorganiza.ui.tasks;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -53,6 +56,7 @@ public class NewTaskFragment extends Fragment {
         taskDescriptionEditText = root.findViewById(R.id.text_input_descricao);
 
         taskContentEditText = root.findViewById(R.id.text_input_conteudo);
+        taskContentEditText.setVisibility(GONE);
 
         setupDropdownTipo(root);
         setupDropdownDisciplinas(root);
@@ -71,6 +75,15 @@ public class NewTaskFragment extends Fragment {
                 android.R.layout.simple_dropdown_item_1line
         );
         dropdown.setAdapter(adapter);
+
+        dropdown.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedType = (String) parent.getItemAtPosition(position);
+            if(selectedType.equals("Prova")){
+                taskContentEditText.setVisibility(VISIBLE);
+            } else {
+                taskContentEditText.setVisibility(GONE);
+            }
+        });
     }
 
     private void setupDropdownDisciplinas(View root) {
@@ -149,7 +162,7 @@ public class NewTaskFragment extends Fragment {
     //Saving date from fields in the persistence class
     public boolean saveNewTask() {
         String taskName = getTaskName();
-        String taskDescription = getTaskName();
+        String taskDescription = getTaskDescription();
         String taskContent = getTaskContent();
         String taskDate = getTaskDate();
         String taskType = getTaskType();
@@ -165,7 +178,7 @@ public class NewTaskFragment extends Fragment {
                 return false;
         }
         //Local é opicional para Trabalho
-        if (!taskType.equals("Trabalho") && (taskBuilding.isEmpty() || taskRoom.isEmpty())) {
+        if ((taskType.equals("Prova") || taskType.equals("Laboratório")) && (taskBuilding.isEmpty() || taskRoom.isEmpty())) {
             new AlertDialog.Builder(getContext())
                     .setMessage("Por favor, preencha o Prédio e Sala")
                     .setPositiveButton("OK", (dialog, which) -> {
@@ -184,6 +197,10 @@ public class NewTaskFragment extends Fragment {
                     })
                     .show();
             return false;
+        }
+        if(taskType.equals("Trabalho") || taskType.equals("Tarefa")){
+            taskBuilding = "0";
+            taskRoom = "0";
         }
 
         try {
