@@ -30,6 +30,7 @@ public class DisciplinasFragment extends Fragment  implements View.OnClickListen
 
         RecyclerView recyclerViewCourses = binding.recyclerListDisciplinas;
         DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(persistence.getDisciplinasList());
+        disciplinasAdapter.setEmptyMessage("Nenhuma disciplina cadastrada.");
         recyclerViewCourses.setAdapter(disciplinasAdapter);
 
         return binding.getRoot();

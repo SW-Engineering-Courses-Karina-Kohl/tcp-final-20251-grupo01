@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Disciplinas"
+            android:text="Disciplinas de hoje"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -75,13 +75,30 @@
         </androidx.cardview.widget.CardView>
 
         <!-- CardView cardápio RU -->
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Cardápio RU"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Cardápio RU"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/todat_weekday_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="12dp"
+                android:text="SEXTA"
+                android:textSize="14dp"
+                android:textStyle="normal" />
+        </LinearLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -89,180 +106,11 @@
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TableRow>
-<!--                    Cabeçalho Almoço-->
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Almoço"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
-
-                </TableRow>
-<!--                Linha 1-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-<!--                Linha 2-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-<!--                Linha 3-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-<!--                Cabeçalho Jantar-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Jantar"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
-
-                </TableRow>
-<!--                Linha 4-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-<!--                Linha 5-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-<!--                Linha 6-->
-                <TableRow>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:text="Arroz"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-            </TableLayout>
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/mealFragmentContainerView"
+                android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.cardapio.RUMealCardViewFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>

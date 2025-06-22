@@ -3,11 +3,7 @@ package   br.ufrgs.inf.tcp.tcheorganiza.model.ru;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.HashMap; 
-
-enum DiaDaSemana {
-    SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA
-}
+import java.util.HashMap;
 
 public class Cardapio {
     private Map<DiaDaSemana, List<String>> itens;

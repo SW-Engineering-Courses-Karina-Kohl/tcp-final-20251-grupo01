@@ -2,7 +2,7 @@ package br.ufrgs.inf.tcp.tcheorganiza.persistence;
 
 import org.threeten.bp.LocalDate;
 
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,7 +12,9 @@ import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Course;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Office;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Schedule;
 import br.ufrgs.inf.tcp.tcheorganiza.model.courses.Teacher;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.OrganizadorRus;
 import br.ufrgs.inf.tcp.tcheorganiza.model.ru.RegistroTickets;
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.Ru;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Exam;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Lab;
 import br.ufrgs.inf.tcp.tcheorganiza.model.tasks.Task;
@@ -26,6 +28,10 @@ public class TcheOrganizaPersistence {
     private static volatile TcheOrganizaPersistence instance;
 
     private TcheOrganizaPersistence() {
+        new Thread(() -> {
+            RUOrganizer.carregarRusDoSite(OrganizadorRus.URLCardapioPrae);
+            List<Ru> ruList = RUOrganizer.getRus();
+        }).start();
     }
 
     public static TcheOrganizaPersistence getInstance() {
@@ -43,6 +49,8 @@ public class TcheOrganizaPersistence {
     public RegistroTickets registroTickets = new RegistroTickets();
     private List<Teacher> teachersList = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
+
+    public OrganizadorRus RUOrganizer = new OrganizadorRus();
 
     // TEACHERS
     //Adds the teachers to a list

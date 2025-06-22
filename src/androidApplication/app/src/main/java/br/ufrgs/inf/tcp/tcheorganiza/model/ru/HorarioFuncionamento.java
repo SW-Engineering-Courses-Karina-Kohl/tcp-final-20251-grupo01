@@ -1,7 +1,7 @@
 package br.ufrgs.inf.tcp.tcheorganiza.model.ru;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import org.threeten.bp.LocalTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
 public class HorarioFuncionamento {
 

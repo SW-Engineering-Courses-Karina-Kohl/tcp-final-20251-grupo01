@@ -4,7 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.time.LocalTime;
+import org.threeten.bp.LocalTime;
 
 import java.io.IOException;
 import java.util.*;
@@ -12,6 +12,8 @@ import java.util.*;
 public class OrganizadorRus {
     private List<Ru> listaRus;
     private String nomeRuFavorito;
+
+    public static final String URLCardapioPrae = "https://www.ufrgs.br/prae/cardapio-ru/";
 
     public OrganizadorRus() {
         this.listaRus = new ArrayList<>();

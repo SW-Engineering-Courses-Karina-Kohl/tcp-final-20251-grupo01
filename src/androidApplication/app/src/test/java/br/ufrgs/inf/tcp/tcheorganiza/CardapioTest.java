@@ -1,5 +1,6 @@
 package br.ufrgs.inf.tcp.tcheorganiza;
 
+import br.ufrgs.inf.tcp.tcheorganiza.model.ru.DiaDaSemana;
 import br.ufrgs.inf.tcp.tcheorganiza.model.ru.*;
 
 import org.junit.jupiter.api.BeforeEach;

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import br.ufrgs.inf.tcp.tcheorganiza.R;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 
 public class TicketCardFragment extends Fragment {
 
@@ -20,6 +21,8 @@ public class TicketCardFragment extends Fragment {
     private int remainingUsages, amountBought;
     private FloatingActionButton restoreButton, markAsUsedButton;
     private TextView textTicketNumber, textRemainingUsages;
+
+    private TcheOrganizaPersistence persistence = TcheOrganizaPersistence.getInstance();
 
     public TicketCardFragment() {
         // Default test data
@@ -50,6 +53,7 @@ public class TicketCardFragment extends Fragment {
 
         // Listeners
         restoreButton.setOnClickListener(v -> showConfirmRestoreDialog());
+        restoreButton.hide(); // Inst used now
         markAsUsedButton.setOnClickListener(v -> registerTicketUsage());
 
         return root;
@@ -85,6 +89,7 @@ public class TicketCardFragment extends Fragment {
 
     private void registerTicketUsage() {
         if (remainingUsages > 0) {
+            persistence.registroTickets.utilizarTicket(ticketNumber);
             remainingUsages--;
             
             updateUI();
