@@ -100,6 +100,10 @@ public class OrganizadorRus {
         return DiaDaSemana.valueOf(base);
     }
 
+    public void carregarRusDoSite(){
+        carregarRusDoSite(OrganizadorRus.URLCardapioPrae);
+    }
+
     public void carregarRusDoSite(String url) {
         try {
             // Garante que a lista de RUs está vazia antes de adicionar os RUs do site
