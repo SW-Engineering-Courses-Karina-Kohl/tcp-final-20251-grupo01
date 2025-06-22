@@ -6,37 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NewTaskActivity"
-    android:paddingTop="?attr/actionBarSize">
+    android:fitsSystemWindows="true">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollContent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view_new_task"
+        android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.tasks.NewTaskFragment"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@id/relative_layout_buttons_container"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- Fragment Container dentro do scroll -->
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragment_container_view_new_task"
-                android:name="br.ufrgs.inf.tcp.tcheorganiza.ui.tasks.NewTaskFragment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-
-        <!-- Botões inferiores -->
+    <!-- Botões inferiores -->
         <RelativeLayout
             android:id="@+id/relative_layout_buttons_container"
             android:layout_width="match_parent"
