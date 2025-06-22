@@ -9,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import br.ufrgs.inf.tcp.tcheorganiza.databinding.ActivityStartingPageBinding;
+import br.ufrgs.inf.tcp.tcheorganiza.persistence.TcheOrganizaPersistence;
 
 public class StartingPageActivity extends AppCompatActivity {
 
     private ActivityStartingPageBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +30,9 @@ public class StartingPageActivity extends AppCompatActivity {
                 startActivity(newTaskActivityIntent);
             }
         });
+
+        new Thread(() -> {
+            TcheOrganizaPersistence.getInstance().RUOrganizer.carregarRusDoSite();
+        }).start();
     }
 }
