@@ -1,0 +1,7 @@
+.DS_Store
+bin/
+.idea/
+src/androidApplication/app/.classpath
+src/androidApplication/app/.project
+.gitignore
+src/androidApplication/app/.settings/org.eclipse.jdt.core.prefs

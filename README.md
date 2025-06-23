@@ -19,7 +19,7 @@ O objetivo é centralizar, de forma prática e intuitiva, as principais informa�
 
 - **Visualização do Cardápio do RU:** Consulta ao cardápio semanal do Restaurante Universitário (PRAE/UFRGS).
 
-- **Persistência Offline:** Dados do usuário salvos localmente, permitindo uso sem conexão constante à internet.
+- **Persistência Offline:** Dados do usuário serão salvos localmente para permitir uso sem conexão constante à internet. **Obs.: Esta funcionalidade ainda não foi implementada; atualmente, os dados são mantidos apenas durante a sessão do app.**
 
 - **Interface Simples e Intuitiva:** Navegação focada na usabilidade, com acesso rápido às principais informações do dia.
 
@@ -33,27 +33,97 @@ O objetivo é centralizar, de forma prática e intuitiva, as principais informa�
 
 ## Estrutura de Pastas
 
-```plaintext
-root/
-├── .github/                            # Arquivos de configuração do GitHub
-├── docs/                               # Entregas e documentos do projeto
-├── instructions/                       # Enunciados das etapas do trabalho
-├── lib/                                # Dependências externas
-│   └── jsoup-1.19.1.jar                # Biblioteca para scraping
-├── src/                                # Código-fonte
-│   ├── ScraperMenuRU.java              # Script Java para scraping do cardápio do RU
-│   └── androidApplication/             # Projeto Android (estrutura padrão Gradle)
-│       ├── app/
-│       │   └── src/
-│       │       ├── main/               # Código-fonte principal
-│       │       │   ├── java/           # Pacotes Java (Activities, Fragments, ViewModels, etc.)
-│       │       │   └── res/            # Recursos (layouts, drawables, valores, etc.)
-│       │       ├── androidTest/        # Testes de Instrumentação
-│       │       └── test/               # Testes unitários
-│       ├── gradle/
-│           └── wrapper/                # Wrapper do Gradle
+## Visõo geral da estrutura de pastas do projeto:
+<details>
+<pre>
+.
+├── docs/                      # Documentos de entrega: PDFs das etapas, Perguntas e Apresentação (Keynote)
+├── instructions/              # Enunciados oficiais de cada etapa do trabalho (PDFs das instruções)
+├── src/androidApplication/    # Projeto Android completo (código-fonte, recursos e configuração Gradle)
+│   ├── app/                   # Módulo principal do aplicativo Android
+│   │   ├── build.gradle.kts   # Configuração Gradle específica do módulo
+│   │   ├── proguard-rules.pro # Regras de obfuscação/optimização do código (ProGuard/R8)
+│   │   └── src/
+│   │       ├── main/          # Código-fonte principal (Java + recursos Android)
+│   │       │   ├── AndroidManifest.xml
+│   │       │   ├── java/      # Código Java dividido por pacotes
+│   │       │   │   └── br.ufrgs.inf.tcp.tcheorganiza
+│   │       │   └── res/       # Recursos Android (layouts XML, drawables, strings, cores, temas, etc)
+│   │       ├── androidTest/   # Testes instrumentados (UI tests com Espresso)
+│   │       └── test/          # Testes unitários (JUnit) para as classes Java
+│   ├── build.gradle.kts       # Configuração de build do projeto Android
+│   ├── gradle/                # Configuração de versões de dependências e Wrapper
+├── README.md                  # Este arquivo
+</pre>
+</details>
 
-```
+## Estrutura Detalhada do Projeto Android (src/androidApplication/)
+<details>
+<pre>
+src/androidApplication/
+├── app/                                 # Módulo principal do projeto Android
+│   ├── build.gradle.kts                  # Configuração Gradle específica do módulo (dependencies, plugins, etc)
+│   ├── proguard-rules.pro                # Regras para minificação e obfuscação (ProGuard/R8)
+│   └── src/
+│       ├── main/                         # Código-fonte e recursos usados no app final
+│       │   ├── AndroidManifest.xml       # Manifesto Android (declara Activities, permissões, etc)
+│       │   ├── java/
+│       │   │   └── br/ufrgs/inf/tcp/tcheorganiza/
+│       │   │       ├── MainActivity.java                   # Activity principal (ponto de entrada)
+│       │   │       ├── StartingPageActivity.java          # Tela de início
+│       │   │       ├── PreferenceRuActivity.java          # Tela de preferências relacionadas ao RU
+│       │   │       ├── NewClassActivity.java              # Tela de cadastro de disciplinas
+│       │   │       ├── NewProfessorActivity.java          # Tela de cadastro de professores
+│       │   │       ├── NewTaskActivity.java               # Tela de cadastro de tarefas
+│       │   │       ├── model/                             # Modelos de dados
+│       │   │       │   ├── courses/                       # Estruturas de dados para Disciplinas e Professores
+│       │   │       │   ├── ru/                            # Estruturas para RU (Cardápio, Tickets, etc)
+│       │   │       │   └── tasks/                         # Estruturas de Tarefas (Lab, Trabalho, Prova, etc)
+│       │   │       ├── persistence/                       # Persistência local
+│       │   │       ├── recyclerviewadapters/              # Adapters para listas com RecyclerView
+│       │   │       ├── subjectManager/                    # Gerenciamento de Disciplinas
+│       │   │       ├── ui/                                # Fragments e telas divididas por funcionalidade
+│       │   │       │   ├── cardapio/                      # UI relacionada ao cardápio do RU
+│       │   │       │   ├── disciplinas/                   # UI para Disciplinas (cadastro, listagem, etc)
+│       │   │       │   ├── home/                          # Tela inicial (HomeFragment)
+│       │   │       │   ├── professor/                     # UI de Professores
+│       │   │       │   ├── tasks/                         # UI de Tarefas
+│       │   │       │   └── ticketru/                      # UI para gerenciamento de tickets RU
+│       │   │       └── Utils.java                         # Classe utilitária com métodos auxiliares
+│       │   └── res/                                        # Recursos gráficos, de texto e layout
+│       │       ├── color/                                 # Cores
+│       │       ├── drawable/                              # Imagens vetoriais e shapes
+│       │       ├── layout/                                # Layouts XML das telas e fragments
+│       │       ├── menu/                                  # Menus (ex: BottomNavigation)
+│       │       ├── navigation/                            # Navigation Graph (estrutura de navegação entre telas)
+│       │       ├── values/                                # Strings, dimensões, estilos e temas
+│       │       └── xml/                                   # Regras adicionais do sistema (ex: backup)
+│       └── test/                                          # Testes unitários (JUnit)
+│           └── java/
+│               └── br/ufrgs/inf/tcp/tcheorganiza/
+│                   ├── CardapioTest.java
+│                   ├── CourseTest.java
+│                   ├── ExamTest.java
+│                   ├── HorarioFuncionamentoTest.java
+│                   ├── LabTest.java
+│                   ├── LocalizacaoTest.java
+│                   ├── OfficeTest.java
+│                   ├── OrganizadorRusTest.java
+│                   ├── RegistroTicketsTest.java
+│                   ├── RuTest.java
+│                   ├── ScheduleTest.java
+│                   ├── TaskTest.java
+│                   ├── TeacherTest.java
+│                   ├── TicketTest.java
+│                   └── WorkTest.java
+├── build.gradle.kts          # Configuração de build do projeto (nível raiz)
+├── gradle/                   # Configuração de versões e Wrapper
+├── gradle.properties
+├── gradlew                   # Script Gradle Wrapper (Linux/macOS)
+├── gradlew.bat               # Script Gradle Wrapper (Windows)
+└── settings.gradle.kts       # Configuração de inclusão de módulos no projeto
+</pre>
+</details>
 
 ## Como Rodar o Projeto
 
