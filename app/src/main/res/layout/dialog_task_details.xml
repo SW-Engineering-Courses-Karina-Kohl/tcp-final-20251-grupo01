@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:padding="5dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <!-- Header Row: Task Type + Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@color/color_primary"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_view_task_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tipo da Tarefa"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_view_task_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Data"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <!-- Task Name -->
+                <TextView
+                    android:id="@+id/text_view_task_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Nome da tarefa"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Task Location -->
+                <TextView
+                    android:id="@+id/text_view_task_local"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Local"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <!-- Course Name -->
+                <TextView
+                    android:id="@+id/text_view_task_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Disciplina"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="16sp" />
+
+                <!-- Description (multiline) -->
+                <TextView
+                    android:id="@+id/text_view_task_description_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:textStyle="bold"
+                    android:text="Descrição"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="16sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"
+                    app:cardBackgroundColor="@color/color_surface"
+                    app:cardCornerRadius="4dp">
+
+                    <TextView
+                        android:id="@+id/text_view_task_description"
+                        style="out"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:maxLines="8"
+                        android:minLines="3"
+                        android:scrollbars="vertical"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="16sp"
+                        tools:text="Descrição" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/text_view_task_content_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:visibility="visible"
+                    tools:text="Conteúdo da Prova" />
+
+                <!-- Content (optional, for Exams) -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:elevation="5dp"
+                    app:cardBackgroundColor="@color/color_surface"
+                    app:cardCornerRadius="4dp">
+
+
+                    <TextView
+                        android:id="@+id/text_view_task_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:maxLines="6"
+                        android:minLines="2"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="16sp"
+                        android:visibility="visible"
+                        tools:text="Conteúdo da Prova" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>

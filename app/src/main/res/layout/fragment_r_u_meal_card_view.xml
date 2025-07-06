@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.cardapio.RUMealCardViewFragment"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+        <!-- Lunch Meals Table -->
+        <TableLayout
+            android:id="@+id/lunchMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <!-- Header spanning 3 columns -->
+            <TableRow>
+                <TextView
+                    android:text="Almoço"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_span="3"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <!-- 3 Rows x 3 Columns -->
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Dinner Meals Table -->
+        <TableLayout
+            android:id="@+id/dinnerMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <!-- Header spanning 3 columns -->
+            <TableRow>
+                <TextView
+                    android:text="Jantar"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_span="3"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <!-- 3 Rows x 3 Columns -->
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+                <TextView
+                    android:text=""
+                    android:padding="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:ellipsize="none"
+                    android:singleLine="false"
+                    android:scrollHorizontally="false"
+                    android:inputType="textMultiLine" />
+            </TableRow>
+        </TableLayout>
+</LinearLayout>

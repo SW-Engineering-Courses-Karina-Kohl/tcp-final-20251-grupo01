@@ -1,0 +1,3 @@
+16/05/2025
+- Muito boas as duas entregas! 
+- Pergunta sobre o Diagrama de Classes que pode influenciar a implementação: Não existe uma classe Aluno/Usuário?

@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base dark application theme. -->
+    <style name="Theme.TcheOrganiza" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary</item> <!-- You can create a darker variant if needed -->
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <!-- Backgrounds for dark mode -->
+        <item name="android:colorBackground">@color/color_background_dark</item>
+        <item name="colorOnBackground">@color/color_on_background_dark</item>
+
+        <item name="colorSurface">@color/color_surface_dark</item>
+        <item name="colorOnSurface">@color/color_on_surface_dark</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/color_primary</item>
+
+    </style>
+</resources>

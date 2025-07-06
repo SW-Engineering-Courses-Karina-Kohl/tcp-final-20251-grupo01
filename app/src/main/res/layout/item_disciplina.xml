@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_horario_disciplina"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="14dp"
+            android:text="10:30"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_nome_disciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/text_view_horario_disciplina"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/text_view_horario_disciplina"
+            android:fontFamily="sans-serif-medium"
+            android:text="Técnicas de Construção de Programas"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_sala_disciplina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_nome_disciplina"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/text_view_horario_disciplina"
+            android:fontFamily="sans-serif"
+            android:text="Sala 112 - 43425"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

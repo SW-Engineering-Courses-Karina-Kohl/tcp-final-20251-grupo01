@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_hoje"
+        android:title="@string/hoje"
+        android:icon="@drawable/ic_table_today"/>
+
+    <item android:id="@+id/nav_disciplinas"
+        android:title="@string/disciplinas"
+        android:icon="@drawable/ic_notebook_disciplinas"/>
+
+    <item android:id="@+id/nav_cardapio"
+        android:title="@string/ru"
+        android:icon="@drawable/ic_ticket_ru"/>
+
+    <item android:id="@+id/nav_tasks"
+        android:title="Atividades"
+        android:icon="@drawable/ic_square_list_tasks"/>
+
+</menu>
