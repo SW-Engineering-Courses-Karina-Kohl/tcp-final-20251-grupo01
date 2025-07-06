@@ -6,8 +6,8 @@ plugins {
 
 sonar {
   properties {
-    property "sonar.projectKey", "SW-Engineering-Courses-Karina-Kohl_tcp-final-20251-grupo01"
-    property "sonar.organization", "sw-engineering-courses-karina-kohl"
-    property "sonar.host.url", "https://sonarcloud.io"
+    property("sonar.projectKey", "SW-Engineering-Courses-Karina-Kohl_tcp-final-20251-grupo01")
+    property("sonar.organization", "sw-engineering-courses-karina-kohl")
+    property("sonar.host.url", "https://sonarcloud.io")
   }
 }
